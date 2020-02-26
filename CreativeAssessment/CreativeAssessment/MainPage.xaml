@@ -4,11 +4,51 @@
              xmlns:local="clr-namespace:CreativeAssessment"
              x:Class="CreativeAssessment.MainPage">
 
+    <!-- <StackLayout> -->
+    <!--     ~1~ Place new controls here @1@ -->
+    <!--     <Label Text="Welcome to Xamarin.Forms!"  -->
+    <!--        HorizontalOptions="Center" -->
+    <!--        VerticalOptions="CenterAndExpand" /> -->
+    <!-- </StackLayout> -->
+
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <ListView ItemsSource="{Binding Class}"
+                  HasUnevenRows="true"
+                  ItemSelected="OnListViewItemSelected"
+                  ItemTapped="OnListViewItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <Label Grid.Row="0" 
+                                   Grid.Column="0"
+                                   Text="{Binding MatriculationNumber}"
+                            />
+                            <Label Grid.Row="0" 
+                                   Grid.Column="1"
+                                   Text="{Binding Name}"
+                                    />
+                            <Label Grid.Row="0"
+                                   Grid.Column="2"
+                                   Text="{Binding Surname}"
+                                    />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+     4
     </StackLayout>
 
 </ContentPage>
