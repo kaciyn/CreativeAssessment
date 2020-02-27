@@ -68,6 +68,129 @@ namespace CreativeAssessment
                 Surname = "Gibb",
             });
 
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40406489,
+                Name = "Kaci",
+                Surname = "Yan",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40442953,
+                Name = "Claire",
+                Surname = "Duffy",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40441523,
+                Name = "Sean",
+                Surname = "Patterson",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40089476,
+                Name = "Colin",
+                Surname = "Kean",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40340717,
+                Name = "Grant",
+                Surname = "Shaw",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40442328,
+                Name = "John",
+                Surname = "Gibb",
+            });
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40406489,
+                Name = "Kaci",
+                Surname = "Yan",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40442953,
+                Name = "Claire",
+                Surname = "Duffy",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40441523,
+                Name = "Sean",
+                Surname = "Patterson",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40089476,
+                Name = "Colin",
+                Surname = "Kean",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40340717,
+                Name = "Grant",
+                Surname = "Shaw",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40442328,
+                Name = "John",
+                Surname = "Gibb",
+            });
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40406489,
+                Name = "Kaci",
+                Surname = "Yan",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40442953,
+                Name = "Claire",
+                Surname = "Duffy",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40441523,
+                Name = "Sean",
+                Surname = "Patterson",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40089476,
+                Name = "Colin",
+                Surname = "Kean",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40340717,
+                Name = "Grant",
+                Surname = "Shaw",
+            });
+
+            Class.Add(new Student
+            {
+                MatriculationNumber = 40442328,
+                Name = "John",
+                Surname = "Gibb",
+            });
 
         }
 

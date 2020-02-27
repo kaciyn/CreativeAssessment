@@ -4,44 +4,113 @@
              xmlns:local="clr-namespace:CreativeAssessment"
              x:Class="CreativeAssessment.MainPage">
 
-    <!-- <StackLayout> -->
-    <!--     ~1~ Place new controls here @1@ -->
-    <!--     <Label Text="Welcome to Xamarin.Forms!"  -->
-    <!--        HorizontalOptions="Center" -->
-    <!--        VerticalOptions="CenterAndExpand" /> -->
-    <!-- </StackLayout> -->
+
 
     <StackLayout>
         <ListView ItemsSource="{Binding Class}"
-                  HasUnevenRows="true"
+                  x:Name="class"
                   ItemSelected="OnListViewItemSelected"
                   ItemTapped="OnListViewItemTapped">
+
+            <!-- <ListView.Header> -->
+            <!--     <StackLayout Orientation="Horizontal"> -->
+            <!--         <Grid Padding="10"> -->
+            <!--             <Grid.RowDefinitions> -->
+            <!--                 <RowDefinition Height="Auto" /> -->
+            <!--                 <RowDefinition Height="*" /> -->
+            <!--             </Grid.RowDefinitions> -->
+            <!--             <Grid.ColumnDefinitions> -->
+            <!--                 <ColumnDefinition Width="1*" /> -->
+            <!--                 <ColumnDefinition Width="*" /> -->
+            <!--             </Grid.ColumnDefinitions> -->
+            <!-- -->
+            <!-- -->
+            <!--             <Label Grid.Row="0"  -->
+            <!--                    Grid.Column="0" -->
+            <!--                    Text="Matric. No." -->
+            <!--             /> -->
+            <!--             <Label Grid.Row="0"  -->
+            <!--                    Grid.Column="1" -->
+            <!--                    Text="Name" -->
+            <!--             /> -->
+            <!--             <Label Grid.Row="0" -->
+            <!--                    Grid.Column="2" -->
+            <!--                    Text="Surname" -->
+            <!--             /> -->
+            <!--             <Label Grid.Row="0" -->
+            <!--                    Grid.Column="3" -->
+            <!--                    Text="Marked" -->
+            <!--             /> -->
+            <!--         </Grid> -->
+            <!--     </StackLayout> -->
+            <!-- </ListView.Header> -->
+
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid Padding="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".1*" />
+                                <ColumnDefinition Width=".1*" />
+                                <ColumnDefinition Width=".1*" />
+</Grid.ColumnDefinitions>
+
+                            <!-- -->
+                            <!-- <Label Grid.Row="0" -->
+                            <!--        Grid.Column="0" -->
+                            <!--        Text="Matric. No." -->
+                            <!-- /> -->
+                            <!-- <Label Grid.Row="0" -->
+                            <!--        Grid.Column="1" -->
+                            <!--        Text="Name" -->
+                            <!-- /> -->
+                            <!-- <Label Grid.Row="0" -->
+                            <!--        Grid.Column="2" -->
+                            <!--        Text="Surname" -->
+                            <!-- /> -->
+                            <!-- <Label Grid.Row="0" -->
+                            <!--        Grid.Column="3" -->
+                            <!--        Text="Marked" -->
+                            <!-- /> -->
 
 
-                            <Label Grid.Row="0" 
+                            <Label Grid.Row="1" 
                                    Grid.Column="0"
                                    Text="{Binding MatriculationNumber}"
                             />
-                            <Label Grid.Row="0" 
+                            <Label Grid.Row="1" 
                                    Grid.Column="1"
                                    Text="{Binding Name}"
                                     />
-                            <Label Grid.Row="0"
+                            <Label Grid.Row="1"
                                    Grid.Column="2"
                                    Text="{Binding Surname}"
-                                    />
+                            />
+                            <Label Grid.Row="1"
+                                   Grid.Column="3"
+                                   Text="{Binding Marked}"
+                            />
+
+                            <!-- <Label Grid.Row="0"  -->
+                            <!--        Grid.Column="0" -->
+                            <!--        Text="{Binding MatriculationNumber}" -->
+                            <!-- /> -->
+                            <!-- <Label Grid.Row="0"  -->
+                            <!--        Grid.Column="1" -->
+                            <!--        Text="{Binding Name}" -->
+                            <!-- /> -->
+                            <!-- <Label Grid.Row="0" -->
+                            <!--        Grid.Column="2" -->
+                            <!--        Text="{Binding Surname}" -->
+                            <!-- /> -->
+                            <!-- <Label Grid.Row="0" -->
+                            <!--        Grid.Column="3" -->
+                            <!--        Text="{Binding Marked}" -->
+                            <!-- /> -->
+
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
