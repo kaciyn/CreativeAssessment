@@ -7,43 +7,17 @@
 
 
     <StackLayout>
+
+        <Button Text="Upload Class List"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="OnClickOpenCSV" />
+
+
         <ListView ItemsSource="{Binding Class}"
                   x:Name="class"
                   ItemSelected="OnListViewItemSelected"
                   ItemTapped="OnListViewItemTapped">
-
-            <!-- <ListView.Header> -->
-            <!--     <StackLayout Orientation="Horizontal"> -->
-            <!--         <Grid Padding="10"> -->
-            <!--             <Grid.RowDefinitions> -->
-            <!--                 <RowDefinition Height="Auto" /> -->
-            <!--                 <RowDefinition Height="*" /> -->
-            <!--             </Grid.RowDefinitions> -->
-            <!--             <Grid.ColumnDefinitions> -->
-            <!--                 <ColumnDefinition Width="1*" /> -->
-            <!--                 <ColumnDefinition Width="*" /> -->
-            <!--             </Grid.ColumnDefinitions> -->
-            <!-- -->
-            <!-- -->
-            <!--             <Label Grid.Row="0"  -->
-            <!--                    Grid.Column="0" -->
-            <!--                    Text="Matric. No." -->
-            <!--             /> -->
-            <!--             <Label Grid.Row="0"  -->
-            <!--                    Grid.Column="1" -->
-            <!--                    Text="Name" -->
-            <!--             /> -->
-            <!--             <Label Grid.Row="0" -->
-            <!--                    Grid.Column="2" -->
-            <!--                    Text="Surname" -->
-            <!--             /> -->
-            <!--             <Label Grid.Row="0" -->
-            <!--                    Grid.Column="3" -->
-            <!--                    Text="Marked" -->
-            <!--             /> -->
-            <!--         </Grid> -->
-            <!--     </StackLayout> -->
-            <!-- </ListView.Header> -->
 
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -56,60 +30,25 @@
                                 <ColumnDefinition Width=".1*" />
                                 <ColumnDefinition Width=".1*" />
                                 <ColumnDefinition Width=".1*" />
-</Grid.ColumnDefinitions>
-
-                            <!-- -->
-                            <!-- <Label Grid.Row="0" -->
-                            <!--        Grid.Column="0" -->
-                            <!--        Text="Matric. No." -->
-                            <!-- /> -->
-                            <!-- <Label Grid.Row="0" -->
-                            <!--        Grid.Column="1" -->
-                            <!--        Text="Name" -->
-                            <!-- /> -->
-                            <!-- <Label Grid.Row="0" -->
-                            <!--        Grid.Column="2" -->
-                            <!--        Text="Surname" -->
-                            <!-- /> -->
-                            <!-- <Label Grid.Row="0" -->
-                            <!--        Grid.Column="3" -->
-                            <!--        Text="Marked" -->
-                            <!-- /> -->
+                            </Grid.ColumnDefinitions>
 
 
-                            <Label Grid.Row="1" 
+                            <Label Grid.Row="0"
                                    Grid.Column="0"
                                    Text="{Binding MatriculationNumber}"
                             />
-                            <Label Grid.Row="1" 
+                            <Label Grid.Row="0"
                                    Grid.Column="1"
                                    Text="{Binding Name}"
-                                    />
-                            <Label Grid.Row="1"
+                            />
+                            <Label Grid.Row="0"
                                    Grid.Column="2"
                                    Text="{Binding Surname}"
                             />
-                            <Label Grid.Row="1"
+                            <Label Grid.Row="0"
                                    Grid.Column="3"
                                    Text="{Binding Marked}"
                             />
-
-                            <!-- <Label Grid.Row="0"  -->
-                            <!--        Grid.Column="0" -->
-                            <!--        Text="{Binding MatriculationNumber}" -->
-                            <!-- /> -->
-                            <!-- <Label Grid.Row="0"  -->
-                            <!--        Grid.Column="1" -->
-                            <!--        Text="{Binding Name}" -->
-                            <!-- /> -->
-                            <!-- <Label Grid.Row="0" -->
-                            <!--        Grid.Column="2" -->
-                            <!--        Text="{Binding Surname}" -->
-                            <!-- /> -->
-                            <!-- <Label Grid.Row="0" -->
-                            <!--        Grid.Column="3" -->
-                            <!--        Text="{Binding Marked}" -->
-                            <!-- /> -->
 
                         </Grid>
                     </ViewCell>
@@ -117,7 +56,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-     
+
     </StackLayout>
 
 </ContentPage>

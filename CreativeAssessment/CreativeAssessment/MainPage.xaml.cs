@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Plugin.FilePicker;
+using Plugin.FilePicker.Abstractions;
 using Xamarin.Forms;
 
 namespace CreativeAssessment
@@ -202,6 +206,36 @@ namespace CreativeAssessment
         void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
         {
             Student tappedItem = e.Item as Student;
+        }
+
+
+        /// <summary>Called when [click open CSV].</summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        async void OnClickOpenCSV(object sender, EventArgs e)
+        {
+            try
+            {
+                FileData filedata = await CrossFilePicker.Current.PickFile();
+                // the dataarray of the file will be found in filedata.DataArray 
+                // file name will be found in filedata.FileName;
+                //etc etc.
+
+                var fileStream = filedata.GetStream();
+                fileStream.
+
+            }
+            catch (Exception ex)
+            {
+                // ExceptionHandler.ShowException(ex.Message);
+            }
+
+
+        }
+
+        List<Student> ParseStudentCsv(string)
+        {
+
         }
 
     }
