@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
+using TinyCsvParser;
+using TinyCsvParser.Mapping;
 using Xamarin.Forms;
+
 
 namespace CreativeAssessment
 {
@@ -20,7 +24,7 @@ namespace CreativeAssessment
             InitializeComponent();
             Class = new ObservableCollection<Student>();
 
-            AddTestStudents();
+            // AddTestStudents();
 
             BindingContext = this;
 
@@ -209,7 +213,7 @@ namespace CreativeAssessment
         }
 
 
-        /// <summary>Called when [click open CSV].</summary>
+        /// <summary>Opens .</summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         async void OnClickOpenCSV(object sender, EventArgs e)
@@ -222,8 +226,13 @@ namespace CreativeAssessment
                 //etc etc.
 
                 var fileStream = filedata.GetStream();
-                fileStream.
+                var csvParser = new CsvParser(); ;
+                var parseResults=csvParser.ParseStreamToStudentList(fileStream);
 
+                foreach (var item in parseResults)
+                {
+                    Class.Add(new Student{Marked = item.Result.Marked,MatriculationNumber = item.Result.MatriculationNumber,Name = item.Result.Name,Surname = item.Result.Surname});
+                }
             }
             catch (Exception ex)
             {
@@ -233,12 +242,10 @@ namespace CreativeAssessment
 
         }
 
-        List<Student> ParseStudentCsv(string)
-        {
-
-        }
 
     }
 
-
 }
+
+
+
