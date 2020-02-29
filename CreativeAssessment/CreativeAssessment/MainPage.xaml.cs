@@ -18,6 +18,12 @@ namespace CreativeAssessment
 {
     public partial class MainPage : ContentPage
     {
+        /// <summary>
+        /// Initialises class list
+        /// </summary>
+        /// <value>
+        /// The class.
+        /// </value>
         public ObservableCollection<Student> Class { get; private set; }
         public MainPage()
         {
@@ -27,186 +33,24 @@ namespace CreativeAssessment
             // AddTestStudents();
 
             BindingContext = this;
-
-
-
         }
 
-        void AddTestStudents()
-        {
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40406489,
-                Name = "Kaci",
-                Surname = "Yan",
-            });
 
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40442953,
-                Name = "Claire",
-                Surname = "Duffy",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40441523,
-                Name = "Sean",
-                Surname = "Patterson",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40089476,
-                Name = "Colin",
-                Surname = "Kean",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40340717,
-                Name = "Grant",
-                Surname = "Shaw",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40442328,
-                Name = "John",
-                Surname = "Gibb",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40406489,
-                Name = "Kaci",
-                Surname = "Yan",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40442953,
-                Name = "Claire",
-                Surname = "Duffy",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40441523,
-                Name = "Sean",
-                Surname = "Patterson",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40089476,
-                Name = "Colin",
-                Surname = "Kean",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40340717,
-                Name = "Grant",
-                Surname = "Shaw",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40442328,
-                Name = "John",
-                Surname = "Gibb",
-            });
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40406489,
-                Name = "Kaci",
-                Surname = "Yan",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40442953,
-                Name = "Claire",
-                Surname = "Duffy",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40441523,
-                Name = "Sean",
-                Surname = "Patterson",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40089476,
-                Name = "Colin",
-                Surname = "Kean",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40340717,
-                Name = "Grant",
-                Surname = "Shaw",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40442328,
-                Name = "John",
-                Surname = "Gibb",
-            });
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40406489,
-                Name = "Kaci",
-                Surname = "Yan",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40442953,
-                Name = "Claire",
-                Surname = "Duffy",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40441523,
-                Name = "Sean",
-                Surname = "Patterson",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40089476,
-                Name = "Colin",
-                Surname = "Kean",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40340717,
-                Name = "Grant",
-                Surname = "Shaw",
-            });
-
-            Class.Add(new Student
-            {
-                MatriculationNumber = 40442328,
-                Name = "John",
-                Surname = "Gibb",
-            });
-
-        }
-
+        /// <summary>
+        /// Called when [ListView item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="SelectedItemChangedEventArgs"/> instance containing the event data.</param>
         void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Student selectedItem = e.SelectedItem as Student;
         }
 
+        /// <summary>
+        /// Called when [ListView item tapped].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="ItemTappedEventArgs"/> instance containing the event data.</param>
         void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
         {
             Student tappedItem = e.Item as Student;
@@ -227,16 +71,16 @@ namespace CreativeAssessment
 
                 var fileStream = filedata.GetStream();
                 var csvParser = new CsvParser(); ;
-                var parseResults=csvParser.ParseStreamToStudentList(fileStream);
+                var parseResults = csvParser.ParseStreamToStudentList(fileStream);
 
                 foreach (var item in parseResults)
                 {
-                    Class.Add(new Student{Marked = item.Result.Marked,MatriculationNumber = item.Result.MatriculationNumber,Name = item.Result.Name,Surname = item.Result.Surname});
+                    Class.Add(new Student { Marked = item.Result.Marked, MatriculationNumber = item.Result.MatriculationNumber, Name = item.Result.Name, Surname = item.Result.Surname });
                 }
             }
             catch (Exception ex)
             {
-                // ExceptionHandler.ShowException(ex.Message);
+                Console.WriteLine(ex);
             }
 
 

@@ -31,14 +31,21 @@ namespace CreativeAssessment
 
         }
 
+        /// <summary>
+        /// Maps csv fields to Student object
+        /// </summary>
+        /// <seealso cref="TinyCsvParser.Mapping.CsvMapping{CreativeAssessment.Student}" />
         private class CsvStudentMapping : CsvMapping<Student>
         {
             public CsvStudentMapping() :base()
             {
-                MapProperty(0, x => x.MatriculationNumber,new Int32Converter());
+                MapProperty(0, x => x.Name);
                 MapProperty(1, x => x.Surname);
-                MapProperty(2, x => x.Name);
-                MapProperty(3, x => x.Marked, new BoolConverter("1","0",StringComparison.InvariantCulture));
+                MapProperty(2, x => x.ID,new Int32Converter());
+                MapProperty(3, x => x.MatriculationNumber,new Int32Converter());
+                MapProperty(4, x => x.Surname);
+                MapProperty(5, x => x.LastDownloaded, new DateTimeConverter());
+                MapProperty(6, x => x.Marked, new BoolConverter("1","0",StringComparison.InvariantCulture));
             }
         }
 

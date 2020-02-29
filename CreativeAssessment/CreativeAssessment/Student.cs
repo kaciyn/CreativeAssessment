@@ -4,12 +4,17 @@ using System.Text;
 
 namespace CreativeAssessment
 {
+    /// <summary>
+    /// Student Information
+    /// </summary>
     public class Student
     {
-        public int MatriculationNumber { get; set; }
-        public string Surname { get; set; }
         public string Name { get; set; }
-
+        public string Surname { get; set; }
+        public int ID { get; set; }
+        public int MatriculationNumber { get; set; }
+        public string Email { get; set; }
+        public DateTime LastDownloaded { get; set; }
         public bool Marked { get; set; }
 
         public override string ToString()
