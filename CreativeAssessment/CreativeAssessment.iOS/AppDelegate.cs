@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Foundation;
@@ -23,6 +24,12 @@ namespace CreativeAssessment.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            string studentFilename = "students_db.db3";
+            //changed slightly for Android , has to access different folder to save DB.
+            string studentFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "..", "Library");
+            string completePath = Path.Combine(studentFolderPath, studentFilename);
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

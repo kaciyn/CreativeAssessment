@@ -7,11 +7,24 @@ namespace CreativeAssessment
 {
     public partial class App : Application
     {
+        //Contains filepath, no need for instance to be accessed.
+        public static string FilePath;
+
         public App()
         {
             InitializeComponent();
 
             MainPage = new MainPage();
+        }
+
+        //Constructor which takes filepath to database
+        public App(string filepath)
+        {
+            InitializeComponent();
+
+            MainPage = new MainPage();
+
+            FilePath = filepath;
         }
 
         protected override void OnStart()

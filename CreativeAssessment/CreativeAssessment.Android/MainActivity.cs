@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.IO;
 
 namespace CreativeAssessment.Droid
 {
@@ -19,7 +20,15 @@ namespace CreativeAssessment.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+
+            //defines location for student database.
+            string studentFilename = "students_db.db3";
+            string studentFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string completePath = Path.Combine(studentFolderPath, studentFilename);
+
+
+
+            LoadApplication(new App(completePath));
         }
     }
 }
