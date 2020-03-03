@@ -30,7 +30,7 @@ namespace CreativeAssessment.iOS
             string studentFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "..", "Library");
             string completePath = Path.Combine(studentFolderPath, studentFilename);
 
-            LoadApplication(new App());
+            LoadApplication(new App(completePath));
 
             return base.FinishedLaunching(app, options);
         }
