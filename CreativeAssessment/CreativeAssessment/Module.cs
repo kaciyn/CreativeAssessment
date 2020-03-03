@@ -8,7 +8,7 @@ namespace CreativeAssessment
     //If anyone has a cleaner way of doing this fire away 
     class Module
     {
-        public List<Assessment> Assessments { get; set; }
+        public List<Project> Assessments { get; set; }
         /// <summary>
         /// Calculated from assessment marks, of 100
         /// </summary>
@@ -16,23 +16,55 @@ namespace CreativeAssessment
         /// The mark.
         /// </value>
         public float Mark { get; set; }
+
+        /// <summary>
+        /// Any additional notes
+        /// </summary>
+        /// <value>
+        /// The notes.
+        /// </value>
+        public string Notes { get; set; }
     }
+
 
     /// <summary>
     /// The assessment/project being marked
     /// </summary>
-    class Assessment : MarkComponent
+    class Project : MarkComponent
     {
-        public List<Deliverable> LearningOutcomes { get; set; }
+        public List<Deliverable> Deliverables { get; set; }
 
     }
+
+    /// <summary>
+    /// The module's learning outcomes
+    /// </summary>
+    class LearningOutcome : MarkComponent
+    {
+        /// <summary>
+        /// the numeric component of the learning outcome i.e. L01 -> 1 etc.
+        /// </summary>
+        public int ID { get; set; }
+
+        /// <summary>
+        /// The deliverables which the learning outcome encompasses
+        /// </summary>
+        /// <value>
+        /// The deliverables.
+        /// </value>
+        public List<Deliverable> Deliverables { get; set; }
+    }
+
+ 
 
     /// <summary>
     /// Components or project mark, i.e. Research, Development, Pride, etc.
     /// </summary>
     class Deliverable : MarkComponent
     {
-        //Leaving this here for now in case there's other properties outwith the scope of the generic mark component we might like to add
+        public List<MarkComponent> AssessmentCriteria { get; set; }
+        public List<LearningOutcome> LearningOutcomes { get; set; }
+
     }
 
     /// <summary>
@@ -58,34 +90,27 @@ namespace CreativeAssessment
         public float Weighting { get; set; }
 
         /// <summary>
+        /// Any additional notes
+        /// </summary>
+        /// <value>
+        /// The notes.
+        /// </value>
+        public string Notes { get; set; }
+
+
+        /// <summary>
         /// Calculates the total mark from the given mark components.
         /// </summary>
         /// <param name="components">The components.</param>
-        /// <returns></returns>
-        public float CalculateMark(List<MarkComponent> components)
+        /// <returns>
+        /// Total mark
+        /// </returns>
+        public float CalculateMark(List<MarkComponent> components)//ugh lol i hope it works with the inheritance i guess we will just have to wait and see
         {
             return components.Sum(markComponent => markComponent.Mark * markComponent.Weighting) / components.Count;
         }
 
     }
 
-    /// <summary>
-    /// The module's learning outcomes, linked to deliverables
-    /// </summary>
-    class LearningOutcome
-    {
-        /// <summary>
-        /// i.e. L01, L02
-        /// </summary>
-        public string ID { get; set; }
-        public string Name { get; set; }
 
-        /// <summary>
-        /// The deliverables which the learning outcome encompasses
-        /// </summary>
-        /// <value>
-        /// The deliverables.
-        /// </value>
-        public List<Deliverable> Deliverables { get; set; }
-    }
 }
