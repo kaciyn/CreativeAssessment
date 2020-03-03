@@ -71,12 +71,7 @@ namespace CreativeAssessment
                 return "D-";
 
             }
-            if (mark <= 30.49)
-            {
-                return "E";
-
-            }
-            return mark <= 0 ? "F" : "NM";
+            return mark <= 30.49 ? "E" : "F";
         }
 
 
