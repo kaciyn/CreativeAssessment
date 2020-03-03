@@ -13,47 +13,65 @@ namespace CreativeAssessment
         /// <returns></returns>
         public string ReturnLetterGrade(float mark)
         {
-            //TODO need clarification on the actual scale
-            if (mark <= 90)
+            //Functionality for custom grade scales could be easily added here but that's :) outwith :) our purview :)
+            if (mark <= 84.5)
             {
                 return "A+";
 
             }
-            if (mark <= 80)
+            if (mark <= 74.49)
             {
                 return "A";
 
             }
-            if (mark <= 70)
+            if (mark <= 69.49)
             {
                 return "A-";
 
             }
-            if (mark <= 60)
+            if (mark <= 66.49)
+            {
+                return "B+";
+
+            }
+            if (mark <= 62.49)
             {
                 return "B";
 
             }
-            if (mark <= 50)
+            if (mark <= 59.49)
+            {
+                return "B-";
+
+            }
+            if (mark <= 56.49)
+            {
+                return "C+";
+            }
+            if (mark <= 52.49)
             {
                 return "C";
             }
-            if (mark <= 40)
+            if (mark <= 49.49)
+            {
+                return "C-";
+            }
+            if (mark <= 46.49)
             {
                 return "D+";
 
             }
-            if (mark <= 30)
+            if (mark <= 42.49)
             {
                 return "D";
 
             }
-            if (mark <= 20)
+            if (mark <= 39.49)
             {
                 return "D-";
 
             }
-            if (mark <= 10)
+            if (mark <= 30.49)
             {
                 return "E";
 
