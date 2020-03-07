@@ -6,9 +6,9 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+
+        <Button Text="Module Creation Page" Clicked="OnClickOpenCreateModulePage"/>
+
     </StackLayout>
 
 </ContentPage>
