@@ -26,6 +26,7 @@ namespace CreativeAssessment
 
         public DateTime LastDownloaded { get; set; }
 
+        
         public bool Marked { get; set; }
 
         public override string ToString()
