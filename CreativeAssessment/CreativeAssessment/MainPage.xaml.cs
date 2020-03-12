@@ -26,10 +26,12 @@ namespace CreativeAssessment
         /// The class.
         /// </value>
         public ObservableCollection<Student> Class { get; private set; }
+        public ObservableCollection<Module> Modules { get; private set; }
         public MainPage()
         {
             InitializeComponent();
             Class = new ObservableCollection<Student>();
+            Modules = new ObservableCollection<Module>();
 
             // AddTestStudents();
 
@@ -85,12 +87,16 @@ namespace CreativeAssessment
                 using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
                 {
                     conn.CreateTable<Student>();
-
+                    
                     //add each student to a students database.
                     foreach (Student person in Class)
                     {
                         conn.Insert(person);
                     }
+
+                    
+
+
                 }
                 // just a notification to say it was a success.
                 await DisplayAlert("!", "Upload successful", "OK");
