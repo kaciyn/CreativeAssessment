@@ -41,10 +41,11 @@ namespace CreativeAssessment
             {
                 MapProperty(0, x => x.Name);
                 MapProperty(1, x => x.Surname);
-                MapProperty(2, x => x.ID,new Int32Converter());
+                //ID is empty at the moment but if we need to map in the future it's here
+                // MapProperty(2, x => x.ID);
                 MapProperty(3, x => x.MatriculationNumber,new Int32Converter());
-                MapProperty(4, x => x.Surname);
-                MapProperty(5, x => x.LastDownloaded, new DateTimeConverter());
+                MapProperty(4, x => x.Email);
+                MapProperty(5, x => x.LastDownloaded, new Int32Converter());
                 MapProperty(6, x => x.Marked, new BoolConverter("1","0",StringComparison.InvariantCulture));
             }
         }

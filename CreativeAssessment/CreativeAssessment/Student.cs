@@ -12,9 +12,9 @@ namespace CreativeAssessment
         public string Name { get; set; }
         public string Surname { get; set; }
         public int ID { get; set; }
-        public int MatriculationNumber { get; set; }
         public string Email { get; set; }
-        public DateTime LastDownloaded { get; set; }
+        public int MatriculationNumber { get; set; }
+        public int LastDownloaded { get; set; }
         public bool Marked { get; set; }
 
         public override string ToString()

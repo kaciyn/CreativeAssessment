@@ -5,25 +5,57 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CreativeAssessment.ClassPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="This is a class list"
-                VerticalOptions="Start" 
-                HorizontalOptions="CenterAndExpand" />
-            <ListView>
-                <ListView.ItemsSource>
-                    <!-- "{Binding Students}" -->
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Baboon</x:String>
-                        <x:String>Capuchin Monkey</x:String>
-                        <x:String>Blue Monkey</x:String>
-                        <x:String>Squirrel Monkey</x:String>
-                        <x:String>Golden Lion Tamarin</x:String>
-                        <x:String>Howler Monkey</x:String>
-                        <x:String>Japanese Macaque</x:String>
-                    </x:Array>
-                </ListView.ItemsSource>
-            </ListView>
-        </StackLayout>
-    </ContentPage.Content>
+    <!-- <StackLayout> -->
+    <!-- -->
+    <!--     <Button Text="Upload Class List" -->
+    <!--             VerticalOptions="CenterAndExpand" -->
+    <!--             HorizontalOptions="Center" -->
+    <!--             Clicked="OnClickOpenCSV" /> -->
+    <!-- -->
+    <!-- -->
+    <!--     <ListView ItemsSource="{Binding Class}" -->
+    <!--               x:Name="class" -->
+    <!--               ItemSelected="OnListViewItemSelected" -->
+    <!--               ItemTapped="OnListViewItemTapped"> -->
+    <!-- -->
+    <!--         <ListView.ItemTemplate> -->
+    <!--             <DataTemplate> -->
+    <!--                 <ViewCell> -->
+    <!--                     <Grid Padding="10"> -->
+    <!--                         <Grid.RowDefinitions> -->
+    <!--                             <RowDefinition Height="Auto" /> -->
+    <!--                         </Grid.RowDefinitions> -->
+    <!--                         <Grid.ColumnDefinitions> -->
+    <!--                             <ColumnDefinition Width=".1*" /> -->
+    <!--                             <ColumnDefinition Width=".1*" /> -->
+    <!--                             <ColumnDefinition Width=".1*" /> -->
+    <!--                         </Grid.ColumnDefinitions> -->
+    <!-- -->
+    <!-- -->
+    <!--                         <Label Grid.Row="0" -->
+    <!--                                Grid.Column="0" -->
+    <!--                                Text="{Binding MatriculationNumber}" -->
+    <!--                         /> -->
+    <!--                         <Label Grid.Row="0" -->
+    <!--                                Grid.Column="1" -->
+    <!--                                Text="{Binding Name}" -->
+    <!--                         /> -->
+    <!--                         <Label Grid.Row="0" -->
+    <!--                                Grid.Column="2" -->
+    <!--                                Text="{Binding Surname}" -->
+    <!--                         /> -->
+    <!--                         <Label Grid.Row="0" -->
+    <!--                                Grid.Column="3" -->
+    <!--                                Text="{Binding Marked}" -->
+    <!--                         /> -->
+    <!-- -->
+    <!-- -->
+    <!--                     </Grid> -->
+    <!--                 </ViewCell> -->
+    <!--             </DataTemplate> -->
+    <!--         </ListView.ItemTemplate> -->
+    <!--     </ListView> -->
+    <!-- -->
+    <!-- -->
+    <!-- </StackLayout> -->
 </ContentPage>

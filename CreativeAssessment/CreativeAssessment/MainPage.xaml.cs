@@ -70,12 +70,12 @@ namespace CreativeAssessment
                 //etc etc.
 
                 var fileStream = filedata.GetStream();
-                var csvParser = new CsvParser(); ;
+                var csvParser = new CsvParser();
                 var parseResults = csvParser.ParseStreamToStudentList(fileStream);
 
                 foreach (var item in parseResults)
                 {
-                    Class.Add(new Student { Marked = item.Result.Marked, MatriculationNumber = item.Result.MatriculationNumber, Name = item.Result.Name, Surname = item.Result.Surname });
+                    Class.Add(new Student { Marked = item.Result.Marked, Email = item.Result.Email, MatriculationNumber = item.Result.MatriculationNumber, Name = item.Result.Name, Surname = item.Result.Surname});
                 }
             }
             catch (Exception ex)
