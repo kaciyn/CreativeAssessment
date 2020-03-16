@@ -24,7 +24,7 @@ namespace CreativeAssessment
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new Views.LaunchPage());
             
 
             FilePath = filepath;
