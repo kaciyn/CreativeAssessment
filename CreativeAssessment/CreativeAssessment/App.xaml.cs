@@ -15,6 +15,8 @@ namespace CreativeAssessment
             InitializeComponent();
 
             MainPage = new MainPage();
+            
+           
         }
 
         //Constructor which takes filepath to database
@@ -23,6 +25,7 @@ namespace CreativeAssessment
             InitializeComponent();
 
             MainPage = new MainPage();
+            
 
             FilePath = filepath;
         }
