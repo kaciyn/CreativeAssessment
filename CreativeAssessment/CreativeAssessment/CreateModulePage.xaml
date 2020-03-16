@@ -63,7 +63,7 @@
                         </StackLayout>
 
                         <StackLayout x:Name="Assessment1Pride" Orientation="Horizontal">
-                            <Entry Placeholder="Criteria"/>
+                            <Entry Placeholder="Pride"/>
                             <Entry Placeholder="% of Grade"/>
                         </StackLayout>
                     </StackLayout>
@@ -99,7 +99,7 @@
                         </StackLayout>
 
                         <StackLayout x:Name="Assessment2Pride" Orientation="Horizontal">
-                            <Entry Placeholder="Criteria"/>
+                            <Entry Placeholder="Pride"/>
                             <Entry Placeholder="% of Grade"/>
                         </StackLayout>
                     </StackLayout>
@@ -135,7 +135,7 @@
                         </StackLayout>
 
                         <StackLayout x:Name="Assessment3Pride" Orientation="Horizontal">
-                            <Entry Placeholder="Criteria"/>
+                            <Entry Placeholder="Pride"/>
                             <Entry Placeholder="% of Grade"/>
                         </StackLayout>
                     </StackLayout>
@@ -171,15 +171,16 @@
                         </StackLayout>
 
                         <StackLayout x:Name="Assessment4Pride" Orientation="Horizontal">
-                            <Entry Placeholder="Criteria"/>
+                            <Entry Placeholder="Pride"/>
                             <Entry Placeholder="% of Grade"/>
                         </StackLayout>
                     </StackLayout>
 
                     <!--Save Button-->
                     <StackLayout Orientation="Horizontal">
-                            <Button x:Name="btnSave" Text="Save"/>
-                        </StackLayout>
+                            <Button x:Name="btnSave" Text="Save" BackgroundColor="#03B79C"
+                                    TextColor="Black" FontSize="12" WidthRequest="60"/>
+                    </StackLayout>
                 </StackLayout>    
         </StackLayout>
         </ScrollView>
