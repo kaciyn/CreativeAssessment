@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
+using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -29,8 +30,6 @@ namespace CreativeAssessment
 
             BindingContext = this;
         }
-
-
 
         /// <summary>
         /// Called when [ListView item selected].
@@ -66,13 +65,34 @@ namespace CreativeAssessment
                 //etc etc.
 
                 var fileStream = filedata.GetStream();
-                var csvParser = new CsvParser();
+                var csvParser = new CsvParser(); ;
                 var parseResults = csvParser.ParseStreamToStudentList(fileStream);
 
                 foreach (var item in parseResults)
                 {
-                    Class.Add(new Student { Marked = item.Result.Marked, Email = item.Result.Email, MatriculationNumber = item.Result.MatriculationNumber, Name = item.Result.Name, Surname = item.Result.Surname });
+                    //added the other fields so that a complete student record is added (email , datetime)
+
+                    Class.Add(new Student { Marked = item.Result.Marked, MatriculationNumber = item.Result.MatriculationNumber, Name = item.Result.Name, Surname = item.Result.Surname, Email = item.Result.Email, LastDownloaded = DateTime.Now });
                 }
+
+                //Initialise a new SQLite connection , connecting to a specific database file defined in App.
+                using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+                {
+                    conn.CreateTable<Student>();
+
+                    //add each student to a students database.
+                    foreach (Student person in Class)
+                    {
+                        conn.Insert(person);
+                    }
+
+
+
+
+                }
+                // just a notification to say it was a success.
+                await DisplayAlert("!", "Upload successful", "OK");
+
             }
             catch (Exception ex)
             {
