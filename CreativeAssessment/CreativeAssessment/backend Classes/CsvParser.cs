@@ -45,7 +45,7 @@ namespace CreativeAssessment
                 // MapProperty(2, x => x.ID);
                 MapProperty(3, x => x.MatriculationNumber,new Int32Converter());
                 MapProperty(4, x => x.Email);
-                MapProperty(5, x => x.LastDownloaded, new Int32Converter());
+                MapProperty(5, x => x.LastDownloadedCsv, new Int32Converter());
                 MapProperty(6, x => x.Marked, new BoolConverter("1","0",StringComparison.InvariantCulture));
             }
         }

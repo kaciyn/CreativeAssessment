@@ -24,6 +24,8 @@ namespace CreativeAssessment
 
         public string Email { get; set; }
 
+        //last downloaded (presumably from moodle?)
+        public int LastDownloadedCsv { get; set; }
         public DateTime LastDownloaded { get; set; }
 
         
