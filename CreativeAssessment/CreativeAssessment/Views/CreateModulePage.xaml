@@ -6,65 +6,183 @@
              mc:Ignorable="d"
              x:Class="CreativeAssessment.CreateModulePage">
     <ContentPage.Content>
-        <StackLayout x:Name="ModuleInfo" Orientation="Vertical">
-            <Label Text="Module Information"/>
-            <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
-                     HeightRequest="10"/>
-            <StackLayout x:Name="InputBoxes" Orientation="Horizontal">
-                <Entry Placeholder="Module Name" x:Name="ModuleName"/>
-                <Entry Placeholder="Module ID" x:Name="ModuleID"/>
-
-                <Picker x:Name="AssessmentPicker" Title="Number Of Assessments">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:Int16}">
-                            <x:Int16>1</x:Int16>
-                            <x:Int16>2</x:Int16>
-                            <x:Int16>3</x:Int16>
-                            <x:Int16>4</x:Int16>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
-            </StackLayout>
-
-            <StackLayout x:Name="AssessmentInfo" Orientation="Vertical">
-                <Label x:Name="lblAssessment" Text="Assessment 1 Criteria"/>
+         <ScrollView HorizontalScrollBarVisibility="Always">
+            <!--Module info section-->
+            <StackLayout x:Name="ModuleInfo" Orientation="Vertical">
+                <Label Text="Module Information"/>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
                          HeightRequest="10"/>
+                <StackLayout x:Name="InputBoxes" Orientation="Horizontal">
+                    <Entry Placeholder="Module Name" x:Name="ModuleName"/>
+                    <Entry Placeholder="Module ID" x:Name="ModuleID"/>
 
-                <StackLayout Orientation="Horizontal">
-                    <Entry x:Name="entryWeighting" Placeholder="% Weighting"/>
+                    <Picker x:Name="AssessmentPicker" Title="Number Of Assessments" SelectedIndexChanged="OnAssessmentPickerChange">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:Int16}">
+                                <x:Int16>1</x:Int16>
+                                <x:Int16>2</x:Int16>
+                                <x:Int16>3</x:Int16>
+                                <x:Int16>4</x:Int16>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
                 </StackLayout>
+
+
+                <!--Asessment info-->
+           
+                <StackLayout x:Name="AssessmentInfo" Orientation="Vertical" Spacing="20">
+
+                    <StackLayout x:Name="Assessment1" IsVisible="False">
+                        <Label x:Name="lblAssessment1" Text="Assessment 1 Criteria" FontSize="20"/>
+                        <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
+                                 HeightRequest="10"/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Entry x:Name="Assessment1Weighting" Placeholder="% Weighting"/>
+                        </StackLayout>
                 
-                <StackLayout x:Name="Research" Orientation="Horizontal">
-                    <Entry Placeholder="Research"/>
-                    <Entry Placeholder="% of Grade"/>
-                </StackLayout>
+                        <StackLayout x:Name="Assessment1Research" Orientation="Horizontal">
+                            <Entry Placeholder="Research"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
 
-                <StackLayout x:Name="Initial_Ideas" Orientation="Horizontal">
-                    <Entry Placeholder="Initial Ideas"/>
-                    <Entry Placeholder="% of Grade"/>
-                </StackLayout>
+                        <StackLayout x:Name="Assessment1Ideas" Orientation="Horizontal">
+                            <Entry Placeholder="Initial Ideas"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
 
-                <StackLayout x:Name="Development" Orientation="Horizontal">
-                    <Entry Placeholder="Development"/>
-                    <Entry Placeholder="% of Grade"/>
-                </StackLayout>
+                        <StackLayout x:Name="Assessment1Devel" Orientation="Horizontal">
+                            <Entry Placeholder="Development"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
 
-                <StackLayout x:Name="Presentation" Orientation="Horizontal">
-                    <Entry Placeholder="Presentation"/>
-                    <Entry Placeholder="% of Grade"/>
-                </StackLayout>
+                        <StackLayout x:Name="Assessment1Presentation" Orientation="Horizontal">
+                            <Entry Placeholder="Presentation"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
 
-                <StackLayout x:Name="Pride" Orientation="Horizontal">
-                    <Entry Placeholder="Criteria"/>
-                    <Entry Placeholder="% of Grade"/>
-                </StackLayout>
+                        <StackLayout x:Name="Assessment1Pride" Orientation="Horizontal">
+                            <Entry Placeholder="Pride"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+                    </StackLayout>
 
-                <StackLayout Orientation="Horizontal">
-                    <Button x:Name="btnAddField" Text="Add Field"/>
-                    <Button x:Name="btnSave" Text="Save"/>
-                </StackLayout>
-            </StackLayout>
+                    <!--Assessment 2-->
+                    <StackLayout x:Name="Assessment2" IsVisible="False">
+                        <Label x:Name="lblAssessment2" Text="Assessment 2 Criteria" FontSize="20"/>
+                        <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
+                                 HeightRequest="10"/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Entry x:Name="Assessment2Weighting" Placeholder="% Weighting"/>
+                        </StackLayout>
+                
+                        <StackLayout x:Name="Assessment2Research" Orientation="Horizontal">
+                            <Entry Placeholder="Research"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Assessment2Ideas" Orientation="Horizontal">
+                            <Entry Placeholder="Initial Ideas"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Assessment2Devel" Orientation="Horizontal">
+                            <Entry Placeholder="Development"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Assessment2Presentation" Orientation="Horizontal">
+                            <Entry Placeholder="Presentation"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Assessment2Pride" Orientation="Horizontal">
+                            <Entry Placeholder="Pride"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <!--Assessment 3-->
+                    <StackLayout x:Name="Assessment3" IsVisible="False">
+                        <Label x:Name="lblAssessment3" Text="Assessment 3 Criteria" FontSize="20"/>
+                        <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
+                                 HeightRequest="10"/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Entry x:Name="Assessment3Weighting" Placeholder="% Weighting"/>
+                        </StackLayout>
+                
+                        <StackLayout x:Name="Assessment3Research" Orientation="Horizontal">
+                            <Entry Placeholder="Research"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Assessment3Ideas" Orientation="Horizontal">
+                            <Entry Placeholder="Initial Ideas"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Assessment3Devel" Orientation="Horizontal">
+                            <Entry Placeholder="Development"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Assessment3Presentation" Orientation="Horizontal">
+                            <Entry Placeholder="Presentation"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Assessment3Pride" Orientation="Horizontal">
+                            <Entry Placeholder="Pride"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                     <!--Assessment 4-->
+                    <StackLayout x:Name="Assessment4" IsVisible="False">
+                        <Label x:Name="lblAssessment4" Text="Assessment 4 Criteria" FontSize="20"/>
+                        <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
+                                 HeightRequest="10"/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Entry x:Name="Assessment4Weighting" Placeholder="% Weighting"/>
+                        </StackLayout>
+                
+                        <StackLayout x:Name="Assessment4Research" Orientation="Horizontal">
+                            <Entry Placeholder="Research"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Assessment4Ideas" Orientation="Horizontal">
+                            <Entry Placeholder="Initial Ideas"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Assessment4Devel" Orientation="Horizontal">
+                            <Entry Placeholder="Development"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Assessment4Presentation" Orientation="Horizontal">
+                            <Entry Placeholder="Presentation"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+
+                        <StackLayout x:Name="Assessment4Pride" Orientation="Horizontal">
+                            <Entry Placeholder="Pride"/>
+                            <Entry Placeholder="% of Grade"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <!--Save Button-->
+                    <StackLayout Orientation="Horizontal">
+                            <Button x:Name="btnSave" Text="Save" BackgroundColor="#03B79C"
+                                    TextColor="Black" FontSize="12" WidthRequest="60" Clicked="OnSaveButtonClick"/>
+                    </StackLayout>
+                </StackLayout>    
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
