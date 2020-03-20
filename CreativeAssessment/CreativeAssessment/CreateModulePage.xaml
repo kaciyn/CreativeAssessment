@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="CreativeAssessment.CreateModulePage">
     <ContentPage.Content>
-         <ScrollView>
+         <ScrollView HorizontalScrollBarVisibility="Always">
             <!--Module info section-->
             <StackLayout x:Name="ModuleInfo" Orientation="Vertical">
                 <Label Text="Module Information"/>
@@ -31,10 +31,10 @@
 
                 <!--Asessment info-->
            
-                <StackLayout x:Name="AssessmentInfo" Orientation="Vertical">
+                <StackLayout x:Name="AssessmentInfo" Orientation="Vertical" Spacing="20">
 
                     <StackLayout x:Name="Assessment1" IsVisible="False">
-                        <Label x:Name="lblAssessment1" Text="Assessment 1 Criteria"/>
+                        <Label x:Name="lblAssessment1" Text="Assessment 1 Criteria" FontSize="20"/>
                         <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
                                  HeightRequest="10"/>
 
@@ -70,7 +70,7 @@
 
                     <!--Assessment 2-->
                     <StackLayout x:Name="Assessment2" IsVisible="False">
-                        <Label x:Name="lblAssessment2" Text="Assessment 2 Criteria"/>
+                        <Label x:Name="lblAssessment2" Text="Assessment 2 Criteria" FontSize="20"/>
                         <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
                                  HeightRequest="10"/>
 
@@ -106,7 +106,7 @@
 
                     <!--Assessment 3-->
                     <StackLayout x:Name="Assessment3" IsVisible="False">
-                        <Label x:Name="lblAssessment3" Text="Assessment 3 Criteria"/>
+                        <Label x:Name="lblAssessment3" Text="Assessment 3 Criteria" FontSize="20"/>
                         <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
                                  HeightRequest="10"/>
 
@@ -142,7 +142,7 @@
 
                      <!--Assessment 4-->
                     <StackLayout x:Name="Assessment4" IsVisible="False">
-                        <Label x:Name="lblAssessment4" Text="Assessment 4 Criteria"/>
+                        <Label x:Name="lblAssessment4" Text="Assessment 4 Criteria" FontSize="20"/>
                         <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
                                  HeightRequest="10"/>
 
@@ -179,7 +179,7 @@
                     <!--Save Button-->
                     <StackLayout Orientation="Horizontal">
                             <Button x:Name="btnSave" Text="Save" BackgroundColor="#03B79C"
-                                    TextColor="Black" FontSize="12" WidthRequest="60"/>
+                                    TextColor="Black" FontSize="12" WidthRequest="60" Clicked="OnSaveButtonClick"/>
                     </StackLayout>
                 </StackLayout>    
         </StackLayout>

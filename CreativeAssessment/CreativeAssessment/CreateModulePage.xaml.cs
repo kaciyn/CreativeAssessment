@@ -57,5 +57,11 @@ namespace CreativeAssessment
                 Assessment4.IsVisible = true;
             }
         }
+
+        public async void OnSaveButtonClick(object sender, EventArgs e)
+        {
+            bool b = await DisplayAlert("Confirm Save", "Are you sure you want to save", "Save", "Cancel");
+
+        }
     }
 }
