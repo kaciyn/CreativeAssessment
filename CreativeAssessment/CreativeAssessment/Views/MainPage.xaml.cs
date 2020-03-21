@@ -19,24 +19,11 @@ namespace CreativeAssessment
 {
     public partial class MainPage : ContentPage
     {
-        /// <summary>
-        /// Initialises class list
-        /// </summary>
-        /// <value>
-        /// The class.
-        /// </value>
-        // public ObservableCollection<Student> Class { get; private set; }
 
-        public ObservableCollection<Module> Modules { get; private set; }
 
         public MainPage()
         {
             InitializeComponent();
-            // Class = new ObservableCollection<Student>();
-            Modules = new ObservableCollection<Module>();
-
-            // AddTestStudents();
-
             BindingContext = this;
         }
 

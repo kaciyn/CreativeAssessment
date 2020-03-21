@@ -8,6 +8,7 @@ using CreativeAssessment.backend_Classes.Entities;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
 using SQLite;
+using TinyCsvParser.Mapping;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,12 +23,12 @@ namespace CreativeAssessment
         /// <value>
         /// The class.
         /// </value>
-        public ObservableCollection<Student> Class { get; private set; }
+        public ObservableCollection<Student> Students { get; private set; }
 
         public ClassPage()
         {
             InitializeComponent();
-            Class = new ObservableCollection<Student>();
+            Students = new ObservableCollection<Student>();
 
             BindingContext = this;
         }
@@ -61,7 +62,7 @@ namespace CreativeAssessment
             try
             {
                 FileData filedata = await CrossFilePicker.Current.PickFile();
-                // the dataarray of the file will be found in filedata.DataArray 
+                // the dataArray of the file will be found in filedata.DataArray 
                 // file name will be found in filedata.FileName;
                 //etc etc.
 
@@ -69,40 +70,59 @@ namespace CreativeAssessment
                 var csvParser = new CsvParser(); ;
                 var parseResults = csvParser.ParseStreamToStudentList(fileStream);
 
-                foreach (var item in parseResults)
-                {
-                    //added the other fields so that a complete student record is added (email , datetime)
+                LoadStudentsFromCsv(parseResults);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
 
-                    Class.Add(new Student { Marked = item.Result.Marked, MatriculationNumber = item.Result.MatriculationNumber, Name = item.Result.Name, Surname = item.Result.Surname, Email = item.Result.Email, LastDownloaded = DateTime.Now });
-                }
 
+         ObservableCollection<Student> LoadStudentsFromCsv(List<CsvMappingResult<Student>> parseResults)
+        {
+            ObservableCollection<Student> students = new ObservableCollection<Student>();
+
+            foreach (var item in parseResults)
+            {
+                //added the other fields so that a complete student record is added (email , datetime)
+
+                students.Add(new Student { Marked = item.Result.Marked, MatriculationNumber = item.Result.MatriculationNumber, Name = item.Result.Name, Surname = item.Result.Surname, Email = item.Result.Email, LastDownloaded = DateTime.Now });
+            }
+
+            return students;
+        }
+
+         void AddStudent()
+         {
+
+         }
+
+
+        async void AddStudentsToDb(ObservableCollection<Student> students)
+        {
+            try
+            {
                 //Initialise a new SQLite connection , connecting to a specific database file defined in App.
                 using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
                 {
                     conn.CreateTable<Student>();
 
                     //add each student to a students database.
-                    foreach (Student person in Class)
+                    foreach (Student person in students)
                     {
                         conn.Insert(person);
                     }
 
-
-
-
                 }
                 // just a notification to say it was a success.
                 await DisplayAlert("!", "Upload successful", "OK");
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
-
-
         }
-
 
     }
 }

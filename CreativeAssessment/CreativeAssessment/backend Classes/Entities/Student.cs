@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using SQLite;
+using TinyCsvParser.Mapping;
 
 namespace CreativeAssessment.backend_Classes.Entities
 {
@@ -33,5 +36,10 @@ namespace CreativeAssessment.backend_Classes.Entities
         {
             return Name;
         }
+
+      
+      
     }
+
+
 }
