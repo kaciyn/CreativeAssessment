@@ -42,29 +42,29 @@
                             <Entry x:Name="Assessment1Weighting" Placeholder="% Weighting"/>
                         </StackLayout>
                 
-                        <StackLayout x:Name="Assessment1Research" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Research"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment1Research"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment1Ideas" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Initial Ideas"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade"  x:Name="Assessment1Ideas"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment1Devel" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Development"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment1Devel"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment1Presentation" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Presentation"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment1Presentation"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment1Pride" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Pride"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment1Pride"/>
                         </StackLayout>
                     </StackLayout>
 

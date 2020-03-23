@@ -45,5 +45,19 @@ namespace CreativeAssessment.backend_Classes.Entities
         /// The notes.
         /// </value>
         public string Comments { get; set; }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="n"></param>
+        public Project(string n)
+        {
+            this.Name = n;
+        }
+
+        public void AddDeliverable(int d)
+        {
+            DeliverableIDs.Add(d);
+        }
     }
 }

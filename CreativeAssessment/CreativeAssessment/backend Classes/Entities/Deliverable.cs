@@ -51,5 +51,12 @@ namespace CreativeAssessment.backend_Classes.Entities
         // [ForeignKey(typeof(LearningOutcome))]
         // public ObservableCollection<int> LearningOutcomeIDs { get; set; }
 
+
+        public Deliverable(string n, float w)
+        {
+            this.Name = n;
+            this.Weighting = w;
+        }
+
     }
 }
