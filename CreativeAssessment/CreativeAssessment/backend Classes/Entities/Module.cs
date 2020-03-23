@@ -12,6 +12,12 @@ namespace CreativeAssessment.backend_Classes.Entities
     public class Module
     {
 
+        //Module name
+        public string Name { get; private set; }
+        
+        //Module ID
+        public string ID { get; private set; }
+
         /// <summary>
         /// Projects in module
         /// </summary>
@@ -46,11 +52,15 @@ namespace CreativeAssessment.backend_Classes.Entities
         public string Comments { get; set; }
 
 
-
-        //Constructor
-        public Module()
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="id"></param>
+        public Module(string n, string id)
         {
-
+            this.Name = n;
+            this.ID = id;
         }
     }
 }

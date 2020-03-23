@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CreativeAssessment.backend_Classes.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,10 +59,25 @@ namespace CreativeAssessment
             }
         }
 
+        /// <summary>
+        /// Click event handler for the save button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public async void OnSaveButtonClick(object sender, EventArgs e)
         {
             bool b = await DisplayAlert("Confirm Save", "Are you sure you want to save", "Save", "Cancel");
+            if (b == true)
+            {
+                CreateModule();
+            }
+        }
 
+        private async void CreateModule()
+        {
+            Module m = new Module(ModuleName.Text, ModuleID.Text);
+
+            //await DisplayAlert("Module", m.Name + " " + m.ID, "OK");
         }
     }
 }
