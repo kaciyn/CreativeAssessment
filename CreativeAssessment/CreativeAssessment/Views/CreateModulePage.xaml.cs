@@ -88,24 +88,15 @@ namespace CreativeAssessment
                 Project p1 = new Project("Assessment 1");
 
                 Deliverable research1 = new Deliverable("Research",
-                    float.Parse(Assessment1Research.Text));
-                p1.AddDeliverable(research1.ID);
-
+                    float.Parse(Assessment1Research.Text), p1.ID);
                 Deliverable ideas1 = new Deliverable("Ideas",
-                    float.Parse(Assessment1Research.Text));
-                p1.AddDeliverable(ideas1.ID);
-
+                    float.Parse(Assessment1Research.Text), p1.ID);
                 Deliverable devel1 = new Deliverable("Development",
-                    float.Parse(Assessment1Research.Text));
-                p1.AddDeliverable(devel1.ID);
-
+                    float.Parse(Assessment1Research.Text), p1.ID);
                 Deliverable presentation1 = new Deliverable("Presentation",
-                    float.Parse(Assessment1Research.Text));
-                p1.AddDeliverable(presentation1.ID);
-
+                    float.Parse(Assessment1Research.Text), p1.ID);
                 Deliverable pride1 = new Deliverable("Pride",
-                    float.Parse(Assessment1Research.Text));
-                p1.AddDeliverable(pride1.ID);
+                    float.Parse(Assessment1Research.Text), p1.ID);
             }
 
 
