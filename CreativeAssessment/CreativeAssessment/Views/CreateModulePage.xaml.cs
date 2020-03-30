@@ -83,24 +83,86 @@ namespace CreativeAssessment
 
             ObservableCollection<int> projects = new ObservableCollection<int>();
 
-            if (AssessmentPicker.SelectedItem.ToString() == "1")
-            {
-                Project p1 = new Project("Assessment 1");
+            Project project1 = new Project("Assessment 1");
+            Project project2 = new Project("Assessment 2");
+            Project project3 = new Project("Assessment 3");
+            Project project4 = new Project("Assessment 4");
+            Project project5 = new Project("Assessment 5");
 
-                Deliverable research1 = new Deliverable("Research",
-                    float.Parse(Assessment1Research.Text), p1.ID);
-                Deliverable ideas1 = new Deliverable("Ideas",
-                    float.Parse(Assessment1Research.Text), p1.ID);
-                Deliverable devel1 = new Deliverable("Development",
-                    float.Parse(Assessment1Research.Text), p1.ID);
-                Deliverable presentation1 = new Deliverable("Presentation",
-                    float.Parse(Assessment1Research.Text), p1.ID);
-                Deliverable pride1 = new Deliverable("Pride",
-                    float.Parse(Assessment1Research.Text), p1.ID);
+            switch(AssessmentPicker.SelectedItem.ToString())
+            {
+                case "1":
+                    CreateDeliverables(Assessment1Research.Text, Assessment1Ideas.Text, Assessment1Devel.Text,
+                        Assessment1Presentation.Text, Assessment1Pride.Text, project1.ID);
+                    projects.Add(project1.ID);
+                    break;
+                case "2":
+                    CreateDeliverables(Assessment1Research.Text, Assessment1Ideas.Text, Assessment1Devel.Text,
+                        Assessment1Presentation.Text, Assessment1Pride.Text, project1.ID);
+                    projects.Add(project1.ID);
+
+                    CreateDeliverables(Assessment2Research.Text, Assessment2Ideas.Text, Assessment2Devel.Text,
+                        Assessment2Presentation.Text, Assessment2Pride.Text, project2.ID);
+                    projects.Add(project2.ID);
+                    break;
+                case "3":
+                    CreateDeliverables(Assessment1Research.Text, Assessment1Ideas.Text, Assessment1Devel.Text,
+                        Assessment1Presentation.Text, Assessment1Pride.Text, project1.ID);
+                    projects.Add(project1.ID);
+
+                    CreateDeliverables(Assessment2Research.Text, Assessment2Ideas.Text, Assessment2Devel.Text,
+                        Assessment2Presentation.Text, Assessment2Pride.Text, project2.ID);
+                    projects.Add(project2.ID);
+
+                    CreateDeliverables(Assessment3Research.Text, Assessment3Ideas.Text, Assessment3Devel.Text,
+                        Assessment3Presentation.Text, Assessment3Pride.Text, project3.ID);
+                    projects.Add(project2.ID);
+                    break;
+                case "4":
+                    CreateDeliverables(Assessment1Research.Text, Assessment1Ideas.Text, Assessment1Devel.Text,
+                    Assessment1Presentation.Text, Assessment1Pride.Text, project1.ID);
+                    projects.Add(project1.ID);
+
+                    CreateDeliverables(Assessment2Research.Text, Assessment2Ideas.Text, Assessment2Devel.Text,
+                        Assessment2Presentation.Text, Assessment2Pride.Text, project2.ID);
+                    projects.Add(project2.ID);
+
+                    CreateDeliverables(Assessment3Research.Text, Assessment3Ideas.Text, Assessment3Devel.Text,
+                        Assessment3Presentation.Text, Assessment3Pride.Text, project3.ID);
+                    projects.Add(project2.ID);
+
+                    CreateDeliverables(Assessment4Research.Text, Assessment4Ideas.Text, Assessment4Devel.Text,
+                        Assessment4Presentation.Text, Assessment4Pride.Text, project4.ID);
+                    projects.Add(project2.ID);
+                    break;
+                default:
+                    await DisplayAlert("Error", "Error you need to specify the number of assessments the module has", "Ok");
+                    break;
             }
+
 
 
             //await DisplayAlert("Module", m.Name + " " + m.ID, "OK");
         }
+
+       /// <summary>
+       /// Creates the deliverable objects for the specified project
+       /// </summary>
+       /// <param name="r"></param>
+       /// <param name="i"></param>
+       /// <param name="dev"></param>
+       /// <param name="presen"></param>
+       /// <param name="pr"></param>
+       /// <param name="pid"></param>
+        private void CreateDeliverables(string r, string i, string dev,
+            string presen, string pr, int pid)
+        {
+            Deliverable research = new Deliverable("Research", float.Parse(r), pid);
+            Deliverable ideas = new Deliverable("Research", float.Parse(i), pid);
+            Deliverable devl = new Deliverable("Research", float.Parse(dev), pid);
+            Deliverable presentation = new Deliverable("Research", float.Parse(presen), pid);
+            Deliverable pride = new Deliverable("Research", float.Parse(pr), pid);
+        }
+
     }
 }
