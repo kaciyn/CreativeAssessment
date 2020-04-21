@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,12 +25,35 @@ namespace CreativeAssessment
         /// </value>
         public ObservableCollection<Student> Class { get; private set; }
 
+        
+        
+
         public ClassPage()
         {
             InitializeComponent();
             Class = new ObservableCollection<Student>();
 
+          
+
             BindingContext = this;
+        }
+
+        protected override void OnAppearing()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+
+                conn.CreateTable<Student>();
+
+                var students = conn.Table<Student>().ToList();
+
+                foreach (var item in students)
+                {
+
+                    Class.Add(new Student { Marked = item.Marked, MatriculationNumber = item.MatriculationNumber, Name = item.Name, Surname = item.Surname, Email = item.Email, LastDownloaded = DateTime.Now });
+                }
+
+            }
         }
 
         /// <summary>
@@ -61,12 +85,13 @@ namespace CreativeAssessment
             try
             {
                 FileData filedata = await CrossFilePicker.Current.PickFile();
+                 
                 // the dataarray of the file will be found in filedata.DataArray 
                 // file name will be found in filedata.FileName;
                 //etc etc.
 
                 var fileStream = filedata.GetStream();
-                var csvParser = new CsvParser(); ;
+                var csvParser = new CsvParser();
                 var parseResults = csvParser.ParseStreamToStudentList(fileStream);
 
                 foreach (var item in parseResults)
