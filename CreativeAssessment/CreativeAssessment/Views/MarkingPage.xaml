@@ -24,6 +24,7 @@
                     />
                 </StackLayout>
             </Frame>
+            <Label x:Name="labelDetailedFeedback1" Text="helllood fdlkjf lkd jlkjdf" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
 
             <Frame BorderColor="#FF8200" HeightRequest="500 " WidthRequest="140" Margin="15">
                 <StackLayout
