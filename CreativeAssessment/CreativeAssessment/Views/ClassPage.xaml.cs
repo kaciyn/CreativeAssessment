@@ -63,7 +63,7 @@ namespace CreativeAssessment
         /// <param name="e">The <see cref="SelectedItemChangedEventArgs"/> instance containing the event data.</param>
         void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Student selectedItem = e.SelectedItem as Student;
+            selectedItem = e.SelectedItem as Student;
         }
 
         /// <summary>
@@ -134,6 +134,7 @@ namespace CreativeAssessment
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
                 conn.CreateTable<Student>();
+                conn.Delete(selectedItem);
                 Class.Remove(selectedItem);
 
             }
