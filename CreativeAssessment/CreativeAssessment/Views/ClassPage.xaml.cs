@@ -25,7 +25,7 @@ namespace CreativeAssessment
         /// </value>
         public ObservableCollection<Student> Class { get; private set; }
 
-        
+        Student selectedItem;
         
 
         public ClassPage()
@@ -128,6 +128,15 @@ namespace CreativeAssessment
 
         }
 
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Class.Remove(selectedItem);
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                conn.CreateTable<Student>();
+                Class.Remove(selectedItem);
 
+            }
+        }
     }
 }
