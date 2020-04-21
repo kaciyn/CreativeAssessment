@@ -15,7 +15,10 @@ namespace CreativeAssessment.backend_Classes.Entities
     public class Deliverable// : MarkComponent
     {
         [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+        public int ID { get; private set; }
+
+        [ForeignKey(typeof(Project))]
+        public int ProjectID { get; private set; }
 
         public string Name { get; set; }
 
@@ -50,6 +53,14 @@ namespace CreativeAssessment.backend_Classes.Entities
         //TODO NOT CURRENTLY IMPLEMENTED
         // [ForeignKey(typeof(LearningOutcome))]
         // public ObservableCollection<int> LearningOutcomeIDs { get; set; }
+
+
+        public Deliverable(string n, float w, int id)
+        {
+            this.Name = n;
+            this.Weighting = w;
+            this.ProjectID = id;
+        }
 
     }
 }

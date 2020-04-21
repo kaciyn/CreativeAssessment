@@ -32,7 +32,7 @@
                 <!--Asessment info-->
            
                 <StackLayout x:Name="AssessmentInfo" Orientation="Vertical" Spacing="20">
-
+                    <!--Assessment 1-->
                     <StackLayout x:Name="Assessment1" IsVisible="False">
                         <Label x:Name="lblAssessment1" Text="Assessment 1 Criteria" FontSize="20"/>
                         <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
@@ -42,29 +42,29 @@
                             <Entry x:Name="Assessment1Weighting" Placeholder="% Weighting"/>
                         </StackLayout>
                 
-                        <StackLayout x:Name="Assessment1Research" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Research"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment1Research"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment1Ideas" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Initial Ideas"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade"  x:Name="Assessment1Ideas"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment1Devel" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Development"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment1Devel"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment1Presentation" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Presentation"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment1Presentation"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment1Pride" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Pride"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment1Pride"/>
                         </StackLayout>
                     </StackLayout>
 
@@ -78,29 +78,29 @@
                             <Entry x:Name="Assessment2Weighting" Placeholder="% Weighting"/>
                         </StackLayout>
                 
-                        <StackLayout x:Name="Assessment2Research" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Research"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment2Research"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment2Ideas" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Initial Ideas"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade"  x:Name="Assessment2Ideas"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment2Devel" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Development"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment2Devel"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment2Presentation" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Presentation"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment2Presentation"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment2Pride" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Pride"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment2Pride"/>
                         </StackLayout>
                     </StackLayout>
 
@@ -114,29 +114,29 @@
                             <Entry x:Name="Assessment3Weighting" Placeholder="% Weighting"/>
                         </StackLayout>
                 
-                        <StackLayout x:Name="Assessment3Research" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Research"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment3Research"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment3Ideas" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Initial Ideas"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade"  x:Name="Assessment3Ideas"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment3Devel" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Development"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment3Devel"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment3Presentation" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Presentation"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment3Presentation"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment3Pride" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Pride"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment3Pride"/>
                         </StackLayout>
                     </StackLayout>
 
@@ -150,29 +150,29 @@
                             <Entry x:Name="Assessment4Weighting" Placeholder="% Weighting"/>
                         </StackLayout>
                 
-                        <StackLayout x:Name="Assessment4Research" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Research"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment4Research"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment4Ideas" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Initial Ideas"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade"  x:Name="Assessment4Ideas"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment4Devel" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Development"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment4Devel"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment4Presentation" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Presentation"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment4Presentation"/>
                         </StackLayout>
 
-                        <StackLayout x:Name="Assessment4Pride" Orientation="Horizontal">
+                        <StackLayout  Orientation="Horizontal">
                             <Entry Placeholder="Pride"/>
-                            <Entry Placeholder="% of Grade"/>
+                            <Entry Placeholder="% of Grade" x:Name="Assessment4Pride"/>
                         </StackLayout>
                     </StackLayout>
 
