@@ -25,7 +25,7 @@ namespace CreativeAssessment.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
-            string studentFilename = "students_db.db3";
+            string studentFilename = "project_db.db3";
             //changed slightly for Android , has to access different folder to save DB.
             string studentFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "..", "Library");
             string completePath = Path.Combine(studentFolderPath, studentFilename);

@@ -21,7 +21,7 @@ namespace CreativeAssessment.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             //defines location for student database.
-            string studentFilename = "students_db.db3";
+            string studentFilename = "project_db.db3";
             string studentFolderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string completePath = Path.Combine(studentFolderPath, studentFilename);
 

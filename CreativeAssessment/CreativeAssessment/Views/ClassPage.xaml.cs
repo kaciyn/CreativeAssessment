@@ -43,7 +43,7 @@ namespace CreativeAssessment
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
 
-                conn.CreateTable<Student>();
+                //conn.CreateTable<Student>();
 
                 var students = conn.Table<Student>().ToList();
 
@@ -128,9 +128,10 @@ namespace CreativeAssessment
 
         }
 
+        //delete individual students
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            Class.Remove(selectedItem);
+            //Class.Remove(selectedItem);
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
                 conn.CreateTable<Student>();
@@ -140,6 +141,7 @@ namespace CreativeAssessment
             }
         }
 
+        //delete all button
         private void ToolbarItem_Clicked_1(object sender, EventArgs e)
         {
 
