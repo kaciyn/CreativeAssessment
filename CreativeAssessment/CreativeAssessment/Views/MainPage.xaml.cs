@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using CreativeAssessment.backend_Classes.Entities;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
 using SQLite;

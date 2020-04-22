@@ -14,13 +14,14 @@ namespace CreativeAssessment.backend_Classes.Entities
     public class Student
     {
 
-        [PrimaryKey, AutoIncrement]
+        
         public int ID { get; set; }
 
         public string Name { get; set; }
 
         public string Surname { get; set; }
 
+        [PrimaryKey]
         public int MatriculationNumber { get; set; }
 
         public string Email { get; set; }

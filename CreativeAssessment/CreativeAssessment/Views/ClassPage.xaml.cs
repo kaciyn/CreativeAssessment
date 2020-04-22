@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,12 +26,35 @@ namespace CreativeAssessment
         /// </value>
         public ObservableCollection<Student> Students { get; private set; }
 
+        Student selectedItem;
+
+
         public ClassPage()
         {
             InitializeComponent();
             Students = new ObservableCollection<Student>();
 
+
+
             BindingContext = this;
+        }
+
+        protected override void OnAppearing()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+
+                conn.CreateTable<Student>();
+
+                var students = conn.Table<Student>().ToList();
+
+                foreach (var item in students)
+                {
+
+                    Students.Add(new Student { Marked = item.Marked, MatriculationNumber = item.MatriculationNumber, Name = item.Name, Surname = item.Surname, Email = item.Email, LastDownloaded = DateTime.Now });
+                }
+
+            }
         }
 
         /// <summary>
@@ -40,7 +64,7 @@ namespace CreativeAssessment
         /// <param name="e">The <see cref="SelectedItemChangedEventArgs"/> instance containing the event data.</param>
         void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Student selectedItem = e.SelectedItem as Student;
+            selectedItem = e.SelectedItem as Student;
         }
 
         /// <summary>
@@ -62,12 +86,13 @@ namespace CreativeAssessment
             try
             {
                 FileData filedata = await CrossFilePicker.Current.PickFile();
-                // the dataArray of the file will be found in filedata.DataArray 
+
+                // the dataarray of the file will be found in filedata.DataArray 
                 // file name will be found in filedata.FileName;
                 //etc etc.
 
                 var fileStream = filedata.GetStream();
-                var csvParser = new CsvParser(); ;
+                var csvParser = new CsvParser();
                 var parseResults = csvParser.ParseStreamToStudentList(fileStream);
 
                 LoadStudentsFromCsv(parseResults);
@@ -79,7 +104,7 @@ namespace CreativeAssessment
         }
 
 
-         ObservableCollection<Student> LoadStudentsFromCsv(List<CsvMappingResult<Student>> parseResults)
+        ObservableCollection<Student> LoadStudentsFromCsv(List<CsvMappingResult<Student>> parseResults)
         {
             ObservableCollection<Student> students = new ObservableCollection<Student>();
 
@@ -93,10 +118,10 @@ namespace CreativeAssessment
             return students;
         }
 
-         void AddStudent()
-         {
+        void AddStudent()
+        {
 
-         }
+        }
 
 
         async void AddStudentsToDb(ObservableCollection<Student> students)
@@ -124,5 +149,16 @@ namespace CreativeAssessment
             }
         }
 
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Students.Remove(selectedItem);
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                conn.CreateTable<Student>();
+                conn.Delete(selectedItem);
+                Students.Remove(selectedItem);
+
+            }
+        }
     }
 }

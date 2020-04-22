@@ -5,6 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CreativeAssessment.ClassPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="bin.png" Text="" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
     <StackLayout>
 
         <Button Text="Upload Class List"
@@ -58,4 +61,5 @@
 
 
     </StackLayout>
+   
 </ContentPage>

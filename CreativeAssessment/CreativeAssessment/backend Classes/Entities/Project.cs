@@ -10,16 +10,13 @@ namespace CreativeAssessment.backend_Classes.Entities
     [Table("Projects")]
     public class Project //: MarkComponent
     {
-        public string Name { get; set; }
-
         /// <summary>
-        /// The project's deliverable ids
+        /// Unique Indentifier
         /// </summary>
-        /// <value>
-        /// The deliverables.
-        /// </value>
-        [ForeignKey(typeof(Deliverable))]
-        public ObservableCollection<int> DeliverableIDs { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int ID { get; private set; }
+
+        public string Name { get; set; }
 
         public string Description { get; set; }
         /// <summary>
@@ -45,5 +42,14 @@ namespace CreativeAssessment.backend_Classes.Entities
         /// The notes.
         /// </value>
         public string Comments { get; set; }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="n"></param>
+        public Project(string n)
+        {
+            this.Name = n;
+        }
     }
 }
