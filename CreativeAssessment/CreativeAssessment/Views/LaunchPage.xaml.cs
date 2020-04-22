@@ -29,5 +29,11 @@ namespace CreativeAssessment.Views
             Navigation.PushAsync(new ClassPage());
 
         }
+
+        private void Button_Clicked_Mark(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MarkingPage());
+
+        }
     }
 }

@@ -17,6 +17,7 @@
                 <StackLayout>
                     <Button Text="Class Page" Clicked="Button_Clicked"></Button>
                         <Button Text="Create Module Page" Clicked="Button_Clicked_1"></Button>
+                        <Button Text="Marking Page" Clicked="Button_Clicked_Mark"></Button>
                 </StackLayout>
             </Frame>
         </StackLayout>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlTypes;
@@ -26,14 +26,14 @@ namespace CreativeAssessment
         public ObservableCollection<Student> Class { get; private set; }
 
         Student selectedItem;
-        
+
 
         public ClassPage()
         {
             InitializeComponent();
             Class = new ObservableCollection<Student>();
 
-          
+
 
             BindingContext = this;
         }
@@ -85,7 +85,7 @@ namespace CreativeAssessment
             try
             {
                 FileData filedata = await CrossFilePicker.Current.PickFile();
-                 
+
                 // the dataarray of the file will be found in filedata.DataArray 
                 // file name will be found in filedata.FileName;
                 //etc etc.

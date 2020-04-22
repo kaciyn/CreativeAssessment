@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CreativeAssessment.Views.MarkingPage">
+    <ContentPage.Content>
+        <FlexLayout Padding="50" AlignItems="Stretch" AlignContent="SpaceAround" >
+            <Frame BorderColor="#FF0000" HeightRequest="500 " WidthRequest="140" Margin="15">
+                <StackLayout
+                VerticalOptions="StartAndExpand" 
+                HorizontalOptions="FillAndExpand"
+                >
+
+                    <Label Text="Criterion 1" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+                    <Label x:Name="labelMark1" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+
+                    <Slider x:Name="sliderMark1"  Minimum="0" Maximum="100" MinimumWidthRequest="500" 
+                            VerticalOptions="Fill" 
+                            Rotation="270"
+                            HorizontalOptions="Fill" ThumbColor="#FF0000" MaximumTrackColor="#FF0000" MinimumTrackColor="#FF0000" HeightRequest="390 " WidthRequest="300" Visual="Material" Scale="3"
+                            ValueChanged="OnSliderValueChanged1"
+                    />
+                </StackLayout>
+            </Frame>
+            <Label x:Name="labelDetailedFeedback1" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+
+            <Frame BorderColor="#FF8200" HeightRequest="500 " WidthRequest="140" Margin="15">
+                <StackLayout
+                    VerticalOptions="StartAndExpand" 
+                    HorizontalOptions="CenterAndExpand">
+
+                    <Label Text="Criterion 2" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+                    <Label x:Name="labelMark2" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+
+                    <Slider x:Name="sliderMark2"  Minimum="0" Maximum="100" 
+                            VerticalOptions="CenterAndExpand" 
+                            Rotation="270"
+                            HorizontalOptions="CenterAndExpand" ThumbColor="#FF8200" MaximumTrackColor="#FF8200" MinimumTrackColor="#FF8200" HeightRequest="380 " WidthRequest="380" Visual="Material" Scale="3" ScaleY="1" ScaleX="1" 
+                            ValueChanged="OnSliderValueChanged2"
+                            />
+                </StackLayout>
+            </Frame>
+
+            <Frame BorderColor="#FFF3EF00" HeightRequest="500 " WidthRequest="140" Margin="15">
+                <StackLayout
+                    VerticalOptions="StartAndExpand" 
+                    HorizontalOptions="CenterAndExpand">
+
+                    <Label Text="Criterion 3" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+                    <Label x:Name="labelMark3" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+
+                    <Slider x:Name="sliderMark3"  Minimum="0" Maximum="100" 
+                            VerticalOptions="CenterAndExpand" 
+                            Rotation="270"
+                            HorizontalOptions="CenterAndExpand" ThumbColor="#FFF3EF00" MaximumTrackColor="#FFF3EF00" MinimumTrackColor="#FFF3EF00" HeightRequest="390 " WidthRequest="300" Visual="Material" Scale="3" 
+                            ValueChanged="OnSliderValueChanged3"
+                    />
+                </StackLayout>
+            </Frame>
+
+            <Frame BorderColor="#FF00FF00" HeightRequest="500 " WidthRequest="140" Margin="15">
+                <StackLayout
+                    VerticalOptions="StartAndExpand" 
+                    HorizontalOptions="CenterAndExpand">
+
+                    <Label Text="Criterion 4" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+                    <Label x:Name="labelMark4" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+
+                    <Slider x:Name="sliderMark4"  Minimum="0" Maximum="100" 
+                            VerticalOptions="CenterAndExpand" 
+                            Rotation="270"
+                            HorizontalOptions="CenterAndExpand" ThumbColor="#FF00FF00" MaximumTrackColor="#FF00FF00" MinimumTrackColor="#FF00FF00" HeightRequest="390 " WidthRequest="300" Visual="Material" Scale="3" 
+                            ValueChanged="OnSliderValueChanged4"
+                    />
+                </StackLayout>
+            </Frame>
+
+            <Frame BorderColor="#FF5F00F3" HeightRequest="500 " WidthRequest="140" Margin="15">
+                <StackLayout
+                    VerticalOptions="StartAndExpand" 
+                    HorizontalOptions="CenterAndExpand">
+
+                    <Label Text="Criterion 5" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+                    <Label x:Name="labelMark5" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+
+                    <Slider x:Name="sliderMark5"  Minimum="0" Maximum="100" 
+                            VerticalOptions="CenterAndExpand" 
+                            Rotation="270"
+                            HorizontalOptions="CenterAndExpand" ThumbColor="#FF5F00F3" MaximumTrackColor="#5F00F3" MinimumTrackColor="#FF5F00F3" HeightRequest="390 " WidthRequest="300" Visual="Material" Scale="3" 
+                            ValueChanged="OnSliderValueChanged5"
+                    />
+                </StackLayout>
+            </Frame>
+
+        </FlexLayout>
+
+    </ContentPage.Content>
+</ContentPage>
