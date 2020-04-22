@@ -7,6 +7,7 @@
              x:Class="CreativeAssessment.ClassPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="bin.png" Text="" Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Text="Delete All" Clicked="ToolbarItem_Clicked_1"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
 
@@ -20,6 +21,24 @@
                   x:Name="class"
                   ItemSelected="OnListViewItemSelected"
                   ItemTapped="OnListViewItemTapped">
+            <ListView.Header>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*" />
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="25*" />
+                        <ColumnDefinition Width="25*"/>
+                        
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Text="Matriculation No." TextColor="Green" BackgroundColor="AntiqueWhite" Grid.Column="0" Grid.Row="0" />
+                    <Label Text="First Name" TextColor="Green" BackgroundColor="AntiqueWhite" Grid.Column="1" Grid.Row="0"/>
+                    <Label Text="Surname" TextColor="Green" BackgroundColor="AntiqueWhite" Grid.Column="2" Grid.Row="0"/>
+                    <Label Text="Marked?" TextColor="Green" BackgroundColor="AntiqueWhite" Grid.Column="3" Grid.Row="0"/>
+                </Grid>
+            </ListView.Header>
 
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -29,9 +48,10 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width=".1*" />
-                                <ColumnDefinition Width=".1*" />
-                                <ColumnDefinition Width=".1*" />
+                                <ColumnDefinition Width="25*" />
+                                <ColumnDefinition Width="25*" />
+                                <ColumnDefinition Width="25*" />
+                                <ColumnDefinition Width="25*" />
                             </Grid.ColumnDefinitions>
 
 

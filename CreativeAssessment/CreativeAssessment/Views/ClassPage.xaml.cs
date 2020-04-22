@@ -139,5 +139,21 @@ namespace CreativeAssessment
 
             }
         }
+
+        private void ToolbarItem_Clicked_1(object sender, EventArgs e)
+        {
+
+            Class.Clear();
+
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                conn.CreateTable<Student>();
+                conn.DeleteAll<Student>();
+
+            }
+
+
+
+        }
     }
 }
