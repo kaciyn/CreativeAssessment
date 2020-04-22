@@ -14,7 +14,10 @@
         <Button Text="Upload Class List"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
-                Clicked="OnClickOpenCSV" />
+                WidthRequest="100"
+                Clicked="OnClickOpenCSV" 
+                HeightRequest="75"
+                />
 
 
         <ListView ItemsSource="{Binding Class}"
