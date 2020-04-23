@@ -39,31 +39,41 @@ namespace CreativeAssessment
             BindingContext = this;
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
 
-                conn.CreateTable<Student>();
-
-                var students = conn.Table<Student>().ToList();
-
-                if (students != null)
+                try
                 {
-                    UploadBtn.IsVisible = false;
-                }
+                    conn.CreateTable<Student>();
 
-                foreach (var item in students)
+                    var students = conn.Table<Student>().ToList();
+
+                    if (students != null)
+                    {
+                        UploadBtn.IsVisible = false;
+                    }
+
+                    foreach (var item in students)
+                    {
+
+                        Class.Add(new Student { Marked = item.Marked, MatriculationNumber = item.MatriculationNumber, Name = item.Name, Surname = item.Surname, Email = item.Email, LastDownloaded = DateTime.Now });
+                    }
+
+                    //loads detailed feedback matrix from db
+                    conn.CreateTable<DetailedFeedback>();
+
+                    //TODO if null show a message? maybe kick the user out to the module creation page to upload the csv or just straight up provide the upload dialogue
+                    DetailedFeedbackMatrix = conn.Table<DetailedFeedback>().ToList();
+                }
+                catch (Exception ex)
                 {
+                    string reason = ex.ToString();
+                    await DisplayAlert("!", "Failed to load students:  " + reason, "OK");
+                    UploadBtn.IsVisible = true;
 
-                    Class.Add(new Student { Marked = item.Marked, MatriculationNumber = item.MatriculationNumber, Name = item.Name, Surname = item.Surname, Email = item.Email, LastDownloaded = DateTime.Now });
                 }
-
-                //loads detailed feedback matrix from db
-                conn.CreateTable<DetailedFeedback>();
-
-                //TODO if null show a message? maybe kick the user out to the module creation page to upload the csv or just straight up provide the upload dialogue
-                DetailedFeedbackMatrix = conn.Table<DetailedFeedback>().ToList();
             }
         }
 
