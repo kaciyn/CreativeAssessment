@@ -43,7 +43,7 @@ namespace CreativeAssessment
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
 
-                //conn.CreateTable<Student>();
+                conn.CreateTable<Student>();
 
                 var students = conn.Table<Student>().ToList();
 
