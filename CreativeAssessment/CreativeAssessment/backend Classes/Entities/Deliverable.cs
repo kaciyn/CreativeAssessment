@@ -22,7 +22,7 @@ namespace CreativeAssessment.backend_Classes.Entities
 
         public string Name { get; set; }
 
-        [ForeignKey(typeof(AssessmentCriterion))]
+        [ForeignKey(typeof(CriterionMark))]
         public ObservableCollection<int> AssessmentCriteriaIDs { get; set; }
 
         public string Description { get; set; }
