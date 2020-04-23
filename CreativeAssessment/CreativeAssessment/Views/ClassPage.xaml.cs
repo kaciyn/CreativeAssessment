@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CreativeAssessment.backend_Classes.Entities;
+using CreativeAssessment.backendClasses.Entities;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
 using SQLite;
@@ -24,16 +25,16 @@ namespace CreativeAssessment
         /// The class.
         /// </value>
         public ObservableCollection<Student> Class { get; private set; }
+        public List<DetailedFeedback> DetailedFeedbackMatrix { get; private set; }
 
-        Student selectedItem;
+        Student selectedStudent;
 
 
         public ClassPage()
         {
             InitializeComponent();
             Class = new ObservableCollection<Student>();
-
-
+            DetailedFeedbackMatrix = new List<DetailedFeedback>();
 
             BindingContext = this;
         }
@@ -53,6 +54,11 @@ namespace CreativeAssessment
                     Class.Add(new Student { Marked = item.Marked, MatriculationNumber = item.MatriculationNumber, Name = item.Name, Surname = item.Surname, Email = item.Email, LastDownloaded = DateTime.Now });
                 }
 
+                //loads detailed feedback matrix from db
+                conn.CreateTable<DetailedFeedback>();
+
+                //TODO if null show a message? maybe kick the user out to the module creation page to upload the csv or just straight up provide the upload dialogue
+                DetailedFeedbackMatrix = conn.Table<DetailedFeedback>().ToList();
             }
         }
 
@@ -63,7 +69,7 @@ namespace CreativeAssessment
         /// <param name="e">The <see cref="SelectedItemChangedEventArgs"/> instance containing the event data.</param>
         void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            selectedItem = e.SelectedItem as Student;
+            selectedStudent = e.SelectedItem as Student;
         }
 
         /// <summary>
@@ -133,8 +139,8 @@ namespace CreativeAssessment
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
                 conn.CreateTable<Student>();
-                conn.Delete(selectedItem);
-                Class.Remove(selectedItem);
+                conn.Delete(selectedStudent);
+                Class.Remove(selectedStudent);
 
             }
         }
@@ -143,7 +149,7 @@ namespace CreativeAssessment
         private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
         {
 
-            var answer =  await DisplayAlert("Warning", "This will delete the list of students, proceed?", "Yes", "No");
+            var answer = await DisplayAlert("Warning", "This will delete the list of students, proceed?", "Yes", "No");
 
             if (answer == true)
             {
@@ -156,13 +162,13 @@ namespace CreativeAssessment
 
                 }
             }
-            else{ }
+            else { }
 
         }
 
         private void MarkButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Views.MarkingPage(selectedItem));
+            Navigation.PushAsync(new Views.MarkingPage(selectedStudent, DetailedFeedbackMatrix));
 
         }
     }

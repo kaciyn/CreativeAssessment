@@ -13,7 +13,7 @@ namespace CreativeAssessment.backendClasses.Entities
         [PrimaryKey]
         public int ID { get; set; }
 
-        public string CriterionName { get; set; }
+        public string Criterion { get; set; }
 
         public string APlus { get; set; }
 

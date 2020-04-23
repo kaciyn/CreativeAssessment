@@ -12,7 +12,7 @@ namespace CreativeAssessment
         /// </summary>
         /// <param name="mark">The mark.</param>
         /// <returns></returns>
-        public static string ReturnLetterGrade(double mark)
+        public static string ReturnLetterGradeString(double mark)
         {
             //Functionality for custom grade scales could be easily added here but that's :) outwith :) our purview :)
             if (mark >= 84.5)
@@ -76,10 +76,8 @@ namespace CreativeAssessment
         }
 
 
-        public static string ReturnDetailedFeedback(double mark, int criterionID)
+        public static string ReturnDetailedFeedback(double mark, int criterionID, List<DetailedFeedback> feedbackMatrix)
         {
-            var feedbackMatrix = new List<DetailedFeedback>();
-
             if (mark >= 84.5)
             {
                 return feedbackMatrix[criterionID].APlus;

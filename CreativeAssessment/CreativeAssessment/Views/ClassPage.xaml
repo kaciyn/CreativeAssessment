@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="CreativeAssessment.ClassPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="markButton"  Icon="tick.png" Text="" Clicked="MarkButton_Clicked"/>
+        <ToolbarItem x:Name="markButton" Text="Mark" Clicked="MarkButton_Clicked"/>
         <ToolbarItem Icon="bin.png" Text="" Clicked="ToolbarItem_Clicked"/>
         <ToolbarItem Text="Delete All" Clicked="ToolbarItem_Clicked_1"/>
     </ContentPage.ToolbarItems>
@@ -32,7 +32,7 @@
                         <ColumnDefinition Width="25*"/>
                         <ColumnDefinition Width="25*" />
                         <ColumnDefinition Width="25*"/>
-                        
+
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -85,5 +85,5 @@
 
 
     </StackLayout>
-   
+
 </ContentPage>

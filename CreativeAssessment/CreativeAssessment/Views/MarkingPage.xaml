@@ -7,92 +7,106 @@
              x:Class="CreativeAssessment.Views.MarkingPage">
     <ContentPage.Content>
         <FlexLayout Padding="50" AlignItems="Stretch" AlignContent="SpaceAround" >
-            <Frame BorderColor="#FF0000" HeightRequest="500 " WidthRequest="140" Margin="15">
-                <StackLayout
-                VerticalOptions="StartAndExpand" 
-                HorizontalOptions="FillAndExpand"
-                >
+            <StackLayout>
 
-                    <Label Text="Criterion 1" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
-                    <Label x:Name="labelMark1" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+                <Frame BorderColor="#FF0000" HeightRequest="400 " WidthRequest="140" Margin="15">
+                    <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" >
 
-                    <Slider x:Name="sliderMark1"  Minimum="0" Maximum="100" MinimumWidthRequest="500" 
+                        <Label x:Name="labelCriterion1"  VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+                        <Label x:Name="labelMark1" Text="Mark" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+
+                        <Slider x:Name="sliderMark1"  Minimum="0" Maximum="100" MinimumWidthRequest="400" 
                             VerticalOptions="Fill" 
                             Rotation="270"
                             HorizontalOptions="Fill" ThumbColor="#FF0000" MaximumTrackColor="#FF0000" MinimumTrackColor="#FF0000" HeightRequest="390 " WidthRequest="300" Visual="Material" Scale="3"
                             ValueChanged="OnSliderValueChanged1"
                     />
-                </StackLayout>
-            </Frame>
-            <Label x:Name="labelDetailedFeedback1" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                </Frame>
+                <Label x:Name="labelDetailedFeedback1" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Small" HorizontalTextAlignment="Center" WidthRequest="140" HeightRequest="100"/>
 
-            <Frame BorderColor="#FF8200" HeightRequest="500 " WidthRequest="140" Margin="15">
-                <StackLayout
+            </StackLayout>
+
+            <StackLayout>
+
+                <Frame BorderColor="#FF8200" HeightRequest="400 " WidthRequest="140" Margin="15">
+                    <StackLayout
                     VerticalOptions="StartAndExpand" 
                     HorizontalOptions="CenterAndExpand">
 
-                    <Label Text="Criterion 2" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
-                    <Label x:Name="labelMark2" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+                        <Label x:Name="labelCriterion2" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+                        <Label x:Name="labelMark2" Text="Mark" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
 
-                    <Slider x:Name="sliderMark2"  Minimum="0" Maximum="100" 
+                        <Slider x:Name="sliderMark2"  Minimum="0" Maximum="100" 
                             VerticalOptions="CenterAndExpand" 
                             Rotation="270"
                             HorizontalOptions="CenterAndExpand" ThumbColor="#FF8200" MaximumTrackColor="#FF8200" MinimumTrackColor="#FF8200" HeightRequest="380 " WidthRequest="380" Visual="Material" Scale="3" ScaleY="1" ScaleX="1" 
                             ValueChanged="OnSliderValueChanged2"
                             />
-                </StackLayout>
-            </Frame>
+                    </StackLayout>
+                </Frame>
+                <Label x:Name="labelDetailedFeedback2" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Small" HorizontalTextAlignment="Center" WidthRequest="140" HeightRequest="100"/>
+            </StackLayout>
 
-            <Frame BorderColor="#FFF3EF00" HeightRequest="500 " WidthRequest="140" Margin="15">
-                <StackLayout
+            <StackLayout>
+                <Frame BorderColor="#FFF3EF00" HeightRequest="400 " WidthRequest="140" Margin="15">
+                    <StackLayout
                     VerticalOptions="StartAndExpand" 
                     HorizontalOptions="CenterAndExpand">
 
-                    <Label Text="Criterion 3" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
-                    <Label x:Name="labelMark3" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+                        <Label x:Name="labelCriterion3" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+                        <Label x:Name="labelMark3"  Text="Mark" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
 
-                    <Slider x:Name="sliderMark3"  Minimum="0" Maximum="100" 
+                        <Slider x:Name="sliderMark3"  Minimum="0" Maximum="100" 
                             VerticalOptions="CenterAndExpand" 
                             Rotation="270"
                             HorizontalOptions="CenterAndExpand" ThumbColor="#FFF3EF00" MaximumTrackColor="#FFF3EF00" MinimumTrackColor="#FFF3EF00" HeightRequest="390 " WidthRequest="300" Visual="Material" Scale="3" 
                             ValueChanged="OnSliderValueChanged3"
                     />
-                </StackLayout>
-            </Frame>
+                    </StackLayout>
+                </Frame>
+                <Label x:Name="labelDetailedFeedback3" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Small" HorizontalTextAlignment="Center" WidthRequest="140" HeightRequest="100"/>
+            </StackLayout>
 
-            <Frame BorderColor="#FF00FF00" HeightRequest="500 " WidthRequest="140" Margin="15">
-                <StackLayout
+            <StackLayout>
+                <Frame BorderColor="#FF00FF00" HeightRequest="400 " WidthRequest="140" Margin="15">
+                    <StackLayout
                     VerticalOptions="StartAndExpand" 
                     HorizontalOptions="CenterAndExpand">
 
-                    <Label Text="Criterion 4" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
-                    <Label x:Name="labelMark4" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+                        <Label x:Name="labelCriterion4" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+                        <Label x:Name="labelMark4" Text="Mark" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
 
-                    <Slider x:Name="sliderMark4"  Minimum="0" Maximum="100" 
+                        <Slider x:Name="sliderMark4"  Minimum="0" Maximum="100" 
                             VerticalOptions="CenterAndExpand" 
                             Rotation="270"
                             HorizontalOptions="CenterAndExpand" ThumbColor="#FF00FF00" MaximumTrackColor="#FF00FF00" MinimumTrackColor="#FF00FF00" HeightRequest="390 " WidthRequest="300" Visual="Material" Scale="3" 
                             ValueChanged="OnSliderValueChanged4"
                     />
-                </StackLayout>
-            </Frame>
+                    </StackLayout>
+                </Frame>
+                <Label x:Name="labelDetailedFeedback4" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Small" HorizontalTextAlignment="Center" WidthRequest="140" HeightRequest="100"/>
+            </StackLayout>
 
-            <Frame BorderColor="#FF5F00F3" HeightRequest="500 " WidthRequest="140" Margin="15">
-                <StackLayout
+            <StackLayout>
+                <Frame BorderColor="#FF5F00F3" HeightRequest="400 " WidthRequest="140" Margin="15">
+                    <StackLayout
                     VerticalOptions="StartAndExpand" 
                     HorizontalOptions="CenterAndExpand">
 
-                    <Label Text="Criterion 5" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
-                    <Label x:Name="labelMark5" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
+                        <Label x:Name="labelCriterion5" VerticalOptions="Start" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" />
+                        <Label x:Name="labelMark5" Text="Mark" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Title" HorizontalTextAlignment="Center" />
 
-                    <Slider x:Name="sliderMark5"  Minimum="0" Maximum="100" 
+                        <Slider x:Name="sliderMark5"  Minimum="0" Maximum="100" 
                             VerticalOptions="CenterAndExpand" 
                             Rotation="270"
                             HorizontalOptions="CenterAndExpand" ThumbColor="#FF5F00F3" MaximumTrackColor="#5F00F3" MinimumTrackColor="#FF5F00F3" HeightRequest="390 " WidthRequest="300" Visual="Material" Scale="3" 
                             ValueChanged="OnSliderValueChanged5"
                     />
-                </StackLayout>
-            </Frame>
+                    </StackLayout>
+                </Frame>
+                <Label x:Name="labelDetailedFeedback5" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Small" HorizontalTextAlignment="Center" WidthRequest="140" HeightRequest="100"/>
+            </StackLayout>
 
         </FlexLayout>
 
