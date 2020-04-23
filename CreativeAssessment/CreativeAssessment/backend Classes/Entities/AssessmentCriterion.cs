@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
+using CreativeAssessment.backend_Classes.Entities;
+
 
 namespace CreativeAssessment.backend_Classes.Entities
 {
@@ -11,6 +14,9 @@ namespace CreativeAssessment.backend_Classes.Entities
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
+
+        [ForeignKey (typeof(Student))]
+        public int MatriculationID { get; set; }
 
         public string Name { get; set; }
 

@@ -10,9 +10,9 @@
         <ScrollView HorizontalScrollBarVisibility="Always">
             <!--Module info section-->
             <StackLayout x:Name="ModuleInfo" Orientation="Vertical">
-                <Label Text="Module Information"/>
+                <Label Text="Module Information" TextColor="DarkCyan" FontSize="18"/>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
-                         HeightRequest="10"/>
+                         HeightRequest="5"/>
 
                 <Button Text="Upload Detailed Feedback Matrix"
                 HorizontalOptions="Center"
