@@ -132,7 +132,8 @@ namespace CreativeAssessment
             }
             catch (Exception ex)
             {
-                await DisplayAlert("!", "Upload Failed", "OK");
+                string reason = ex.ToString();
+                await DisplayAlert("!", "Upload Failed: " + reason, "OK");
             }
 
 
