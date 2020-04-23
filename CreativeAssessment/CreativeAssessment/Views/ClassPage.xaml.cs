@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CreativeAssessment.backend_Classes.Entities;
+using CreativeAssessment.backendClasses.Entities;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
 using SQLite;
@@ -43,7 +44,7 @@ namespace CreativeAssessment
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
 
-                //conn.CreateTable<Student>();
+                conn.CreateTable<Student>();
 
                 var students = conn.Table<Student>().ToList();
 
@@ -53,6 +54,10 @@ namespace CreativeAssessment
                     Class.Add(new Student { Marked = item.Marked, MatriculationNumber = item.MatriculationNumber, Name = item.Name, Surname = item.Surname, Email = item.Email, LastDownloaded = DateTime.Now });
                 }
 
+                //loads detailed feedback matrix from db
+                conn.CreateTable<DetailedFeedback>();
+
+                var detailedFeedback = conn.Table<DetailedFeedback>().ToList();
             }
         }
 
@@ -143,7 +148,7 @@ namespace CreativeAssessment
         private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
         {
 
-            var answer =  await DisplayAlert("Warning", "This will delete the list of students, proceed?", "Yes", "No");
+            var answer = await DisplayAlert("Warning", "This will delete the list of students, proceed?", "Yes", "No");
 
             if (answer == true)
             {
@@ -156,7 +161,7 @@ namespace CreativeAssessment
 
                 }
             }
-            else{ }
+            else { }
 
         }
 

@@ -6,12 +6,21 @@
              mc:Ignorable="d"
              x:Class="CreativeAssessment.CreateModulePage">
     <ContentPage.Content>
-         <ScrollView HorizontalScrollBarVisibility="Always">
+
+        <ScrollView HorizontalScrollBarVisibility="Always">
             <!--Module info section-->
             <StackLayout x:Name="ModuleInfo" Orientation="Vertical">
                 <Label Text="Module Information"/>
                 <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
                          HeightRequest="10"/>
+
+                <Button Text="Upload Detailed Feedback Matrix"
+                HorizontalOptions="Center"
+                WidthRequest="200"
+                Clicked="OnClickOpenCSV" 
+                HeightRequest="75"
+                />
+
                 <StackLayout x:Name="InputBoxes" Orientation="Horizontal">
                     <Entry Placeholder="Module Name" x:Name="ModuleName"/>
                     <Entry Placeholder="Module ID" x:Name="ModuleID"/>
@@ -30,7 +39,7 @@
 
 
                 <!--Asessment info-->
-           
+
                 <StackLayout x:Name="AssessmentInfo" Orientation="Vertical" Spacing="20">
                     <!--Assessment 1-->
                     <StackLayout x:Name="Assessment1" IsVisible="False">
@@ -41,7 +50,7 @@
                         <StackLayout Orientation="Horizontal">
                             <Entry x:Name="Assessment1Weighting" Placeholder="% Weighting"/>
                         </StackLayout>
-                
+
                         <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Research"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment1Research"/>
@@ -77,7 +86,7 @@
                         <StackLayout Orientation="Horizontal">
                             <Entry x:Name="Assessment2Weighting" Placeholder="% Weighting"/>
                         </StackLayout>
-                
+
                         <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Research"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment2Research"/>
@@ -113,7 +122,7 @@
                         <StackLayout Orientation="Horizontal">
                             <Entry x:Name="Assessment3Weighting" Placeholder="% Weighting"/>
                         </StackLayout>
-                
+
                         <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Research"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment3Research"/>
@@ -140,7 +149,7 @@
                         </StackLayout>
                     </StackLayout>
 
-                     <!--Assessment 4-->
+                    <!--Assessment 4-->
                     <StackLayout x:Name="Assessment4" IsVisible="False">
                         <Label x:Name="lblAssessment4" Text="Assessment 4 Criteria" FontSize="20"/>
                         <BoxView HorizontalOptions="FillAndExpand" WidthRequest="1" Color="#03B79C"
@@ -149,7 +158,7 @@
                         <StackLayout Orientation="Horizontal">
                             <Entry x:Name="Assessment4Weighting" Placeholder="% Weighting"/>
                         </StackLayout>
-                
+
                         <StackLayout Orientation="Horizontal">
                             <Entry Placeholder="Research"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment4Research"/>
@@ -178,11 +187,11 @@
 
                     <!--Save Button-->
                     <StackLayout Orientation="Horizontal">
-                            <Button x:Name="btnSave" Text="Save" BackgroundColor="#03B79C"
+                        <Button x:Name="btnSave" Text="Save" BackgroundColor="#03B79C"
                                     TextColor="Black" FontSize="12" WidthRequest="60" Clicked="OnSaveButtonClick"/>
                     </StackLayout>
-                </StackLayout>    
-        </StackLayout>
+                </StackLayout>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

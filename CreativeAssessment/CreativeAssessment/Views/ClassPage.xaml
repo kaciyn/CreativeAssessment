@@ -32,7 +32,7 @@
                         <ColumnDefinition Width="25*"/>
                         <ColumnDefinition Width="25*" />
                         <ColumnDefinition Width="25*"/>
-                        
+
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -85,5 +85,5 @@
 
 
     </StackLayout>
-   
+
 </ContentPage>

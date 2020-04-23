@@ -1,4 +1,8 @@
 ﻿using CreativeAssessment.backend_Classes.Entities;
+using CreativeAssessment.backendClasses.Entities;
+using Plugin.FilePicker;
+using Plugin.FilePicker.Abstractions;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,12 +15,63 @@ using Xamarin.Forms.Xaml;
 
 namespace CreativeAssessment
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateModulePage : ContentPage
     {
+        public List<DetailedFeedback> DetailedFeedback { get; private set; }
+
         public CreateModulePage()
         {
             InitializeComponent();
+            DetailedFeedback = new List<DetailedFeedback>();
+
+        }
+
+
+        // <summary>Opens upload csv dialogue & adds detailed feedback to database.</summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        async void OnClickOpenCSV(object sender, EventArgs e)
+        {
+            try
+            {
+                FileData filedata = await CrossFilePicker.Current.PickFile();
+
+                // the dataarray of the file will be found in filedata.DataArray 
+                // file name will be found in filedata.FileName;
+                //etc etc.
+
+                var fileStream = filedata.GetStream();
+                var csvParser = new CsvParser();
+                var parseResults = csvParser.ParseStreamToDetailedFeedbackList(fileStream);
+
+                foreach (var item in parseResults)
+                {
+
+                    DetailedFeedback.Add(
+                        new DetailedFeedback { ID = item.Result.ID, Criterion = item.Result.Criterion, APlus = item.Result.APlus, A = item.Result.A, AMinus = item.Result.AMinus, BPlus = item.Result.BPlus, B = item.Result.B, CPlus = item.Result.CPlus, C = item.Result.C, CMinus = item.Result.CMinus, DPlus = item.Result.DPlus, D = item.Result.D, DMinus = item.Result.DMinus, E = item.Result.E, F = item.Result.F });
+                }
+
+                //Initialise a new SQLite connection , connecting to a specific database file defined in App.
+                using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+                {
+                    conn.CreateTable<DetailedFeedback>();
+
+                    //adds detailed feedback to db.
+                    foreach (DetailedFeedback item in DetailedFeedback)
+                    {
+                        conn.Insert(item);
+                    }
+                }
+                // just a notification to say it was a success.
+                await DisplayAlert("Upload successful", "", "OK");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         /// <summary>
@@ -27,7 +82,7 @@ namespace CreativeAssessment
         /// <param name="e"></param>
         public void OnAssessmentPickerChange(object sender, EventArgs e)
         {
-            if(AssessmentPicker.SelectedItem.ToString() == "1")
+            if (AssessmentPicker.SelectedItem.ToString() == "1")
             {
                 Assessment1.IsVisible = true;
 
@@ -35,7 +90,7 @@ namespace CreativeAssessment
                 Assessment3.IsVisible = false;
                 Assessment4.IsVisible = false;
             }
-            else if(AssessmentPicker.SelectedItem.ToString() == "2")
+            else if (AssessmentPicker.SelectedItem.ToString() == "2")
             {
                 Assessment1.IsVisible = true;
                 Assessment2.IsVisible = true;
@@ -43,7 +98,7 @@ namespace CreativeAssessment
                 Assessment3.IsVisible = false;
                 Assessment4.IsVisible = false;
             }
-            else if(AssessmentPicker.SelectedItem.ToString() == "3")
+            else if (AssessmentPicker.SelectedItem.ToString() == "3")
             {
                 Assessment1.IsVisible = true;
                 Assessment2.IsVisible = true;
@@ -51,7 +106,7 @@ namespace CreativeAssessment
 
                 Assessment4.IsVisible = false;
             }
-            else if(AssessmentPicker.SelectedItem.ToString() == "4")
+            else if (AssessmentPicker.SelectedItem.ToString() == "4")
             {
                 Assessment1.IsVisible = true;
                 Assessment2.IsVisible = true;
@@ -89,7 +144,7 @@ namespace CreativeAssessment
             Project project4 = new Project("Assessment 4");
             Project project5 = new Project("Assessment 5");
 
-            switch(AssessmentPicker.SelectedItem.ToString())
+            switch (AssessmentPicker.SelectedItem.ToString())
             {
                 case "1":
                     CreateDeliverables(Assessment1Research.Text, Assessment1Ideas.Text, Assessment1Devel.Text,
@@ -145,15 +200,15 @@ namespace CreativeAssessment
             //await DisplayAlert("Module", m.Name + " " + m.ID, "OK");
         }
 
-       /// <summary>
-       /// Creates the deliverable objects for the specified project
-       /// </summary>
-       /// <param name="r"></param>
-       /// <param name="i"></param>
-       /// <param name="dev"></param>
-       /// <param name="presen"></param>
-       /// <param name="pr"></param>
-       /// <param name="pid"></param>
+        /// <summary>
+        /// Creates the deliverable objects for the specified project
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="i"></param>
+        /// <param name="dev"></param>
+        /// <param name="presen"></param>
+        /// <param name="pr"></param>
+        /// <param name="pid"></param>
         private void CreateDeliverables(string r, string i, string dev,
             string presen, string pr, int pid)
         {
