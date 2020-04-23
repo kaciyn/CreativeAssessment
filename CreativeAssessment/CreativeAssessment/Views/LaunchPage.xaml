@@ -6,21 +6,20 @@
     <ContentPage.Content>
 
         <AbsoluteLayout>
-        <StackLayout
+            <StackLayout
             AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
             AbsoluteLayout.LayoutFlags="All">
 
-            <Frame OutlineColor="Accent" 
+                <Frame OutlineColor="Accent" 
                    WidthRequest="300" 
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand">
-                <StackLayout>
-                    <Button Text="Class Page" Clicked="Button_Clicked"></Button>
+                    <StackLayout>
+                        <Button Text="Class Page" Clicked="Button_Clicked"></Button>
                         <Button Text="Create Module Page" Clicked="Button_Clicked_1"></Button>
-                        <Button Text="Marking Page" Clicked="Button_Clicked_Mark"></Button>
-                </StackLayout>
-            </Frame>
-        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
