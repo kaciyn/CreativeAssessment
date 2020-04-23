@@ -13,8 +13,13 @@
     <StackLayout>
 
         <Button Text="Upload Class List"
+                x:Name="UploadBtn"
                 VerticalOptions="CenterAndExpand"
-                HorizontalOptions="Center"
+                BackgroundColor="White"
+                TextColor="DarkCyan"
+                BorderColor="DarkCyan"
+                BorderWidth="0.2"
+                HorizontalOptions="End"
                 WidthRequest="100"
                 Clicked="OnClickOpenCSV" 
                 HeightRequest="75"
@@ -37,10 +42,10 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <Label Text="Matriculation No." TextColor="DarkCyan"  Grid.Column="0" Grid.Row="0" />
-                    <Label Text="First Name" TextColor="DarkCyan" Grid.Column="1" Grid.Row="0"/>
-                    <Label Text="Surname" TextColor="DarkCyan"  Grid.Column="2" Grid.Row="0"/>
-                    <Label Text="Marked?" TextColor="DarkCyan" Grid.Column="3" Grid.Row="0"/>
+                    <Label Text="Matriculation No." TextColor="DarkCyan" FontSize="18" Grid.Column="0" Grid.Row="0" Padding="0.2" />
+                    <Label Text="First Name" TextColor="DarkCyan" Grid.Column="1" FontSize="18"  Grid.Row="0"/>
+                    <Label Text="Surname" TextColor="DarkCyan"  Grid.Column="2" FontSize="18"  Grid.Row="0"/>
+                    <Label Text="Marked?" TextColor="DarkCyan" Grid.Column="3" FontSize="18"  Grid.Row="0"/>
                 </Grid>
             </ListView.Header>
 

@@ -48,6 +48,11 @@ namespace CreativeAssessment
 
                 var students = conn.Table<Student>().ToList();
 
+                if (students != null)
+                {
+                    UploadBtn.IsVisible = false;
+                }
+
                 foreach (var item in students)
                 {
 
@@ -122,11 +127,12 @@ namespace CreativeAssessment
                 }
                 // just a notification to say it was a success.
                 await DisplayAlert("!", "Upload successful", "OK");
+                UploadBtn.IsVisible = false;
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                await DisplayAlert("!", "Upload Failed", "OK");
             }
 
 
@@ -161,6 +167,8 @@ namespace CreativeAssessment
                     conn.DeleteAll<Student>();
 
                 }
+
+                UploadBtn.IsVisible = true;
             }
             else { }
 
