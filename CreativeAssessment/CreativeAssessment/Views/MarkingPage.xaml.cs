@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CreativeAssessment.backend_Classes.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,22 @@ namespace CreativeAssessment.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MarkingPage : ContentPage
     {
+
+        Student student;
+
+        public MarkingPage(Student selectedItem)
+        {
+            InitializeComponent();
+
+            this.student = selectedItem;
+
+        }
+
         public MarkingPage()
         {
             InitializeComponent();
+        
+
         }
 
         void OnSliderValueChanged1(object sender, ValueChangedEventArgs args)

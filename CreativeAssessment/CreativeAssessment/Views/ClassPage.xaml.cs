@@ -156,11 +156,13 @@ namespace CreativeAssessment
 
                 }
             }
+            else{ }
 
-            else
-            { }
+        }
 
-
+        private void MarkButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Views.MarkingPage(selectedItem));
 
         }
     }
