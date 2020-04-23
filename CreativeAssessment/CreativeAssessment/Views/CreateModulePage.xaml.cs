@@ -21,12 +21,19 @@ namespace CreativeAssessment
 
         protected override void OnAppearing()
         {
-            //using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
-            //{
-            //    conn.CreateTable<Module>();
-            //    conn.CreateTable<Project>();
-            //    conn.CreateTable<Deliverable>();
-            //}
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+                {
+                    conn.CreateTable<Module>();
+                    conn.CreateTable<Project>();
+                    conn.CreateTable<Deliverable>();
+                }
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
+            }
         }
 
         /// <summary>
@@ -77,7 +84,8 @@ namespace CreativeAssessment
         /// <param name="e"></param>
         public async void OnSaveButtonClick(object sender, EventArgs e)
         {
-            bool b = await DisplayAlert("Confirm Save", "Are you sure you want to save", "Save", "Cancel");
+            bool b = await DisplayAlert("Confirm Save", "Are you sure you want to save? " +
+                "This will delete all other modules stored in the system", "Save", "Cancel");
             if (b == true)
             {
                 CreateModule();
@@ -89,17 +97,12 @@ namespace CreativeAssessment
         /// </summary>
         private async void CreateModule()
         {
-            Module m = new Module(ModuleName.Text, ModuleID.Text);
+            Module m = new Module(ModuleName.Text, Int32.Parse(ModuleID.Text));
 
             ObservableCollection<Project> projects = new ObservableCollection<Project>();
             ObservableCollection<Deliverable> deliverables = new ObservableCollection<Deliverable>();
-
-            Project project1 = new Project("Assessment 1");
-            Project project2 = new Project("Assessment 2");
-            Project project3 = new Project("Assessment 3");
-            Project project4 = new Project("Assessment 4");
             
-
+            //Create each project and the deliverables for them
             for(int i = 0; i < Int16.Parse(AssessmentPicker.SelectedItem.ToString()); ++i)
             {
                 Project p = new Project("Assessment " + i + 1);
@@ -116,6 +119,33 @@ namespace CreativeAssessment
                 deliverables.Add(new Deliverable("Research", float.Parse(devel.Text), p.ID));
                 deliverables.Add(new Deliverable("Research", float.Parse(presen.Text), p.ID));
                 deliverables.Add(new Deliverable("Research", float.Parse(pride.Text), p.ID));
+            }
+
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+                {
+
+                    conn.DeleteAll<Module>();
+                    conn.DeleteAll<Project>();
+                    conn.DeleteAll<Deliverable>();
+
+                    conn.Insert(m);
+
+                    foreach (Project p in projects)
+                    {
+                        conn.Insert(p);
+                    }
+
+                    foreach (Deliverable d in deliverables)
+                    {
+                        conn.Insert(d);
+                    }         
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
             }
         }
     }

@@ -16,15 +16,8 @@ namespace CreativeAssessment.backend_Classes.Entities
         public string Name { get; private set; }
         
         //Module ID
-        public string ID { get; private set; }
-
-        /// <summary>
-        /// Projects in module
-        /// </summary>
-        /// <value>
-        /// The projects.
-        /// </value>
-        public ObservableCollection<int> ProjectIDs { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int ID { get; private set; }
 
         /// <summary>
         /// Module's learning outcome IDs, not currently implemented
@@ -57,10 +50,15 @@ namespace CreativeAssessment.backend_Classes.Entities
         /// </summary>
         /// <param name="n"></param>
         /// <param name="id"></param>
-        public Module(string n, string id)
+        public Module(string n, int id)
         {
             this.Name = n;
             this.ID = id;
+        }
+
+        public Module()
+        {
+
         }
     }
 }
