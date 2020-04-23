@@ -19,12 +19,12 @@ namespace CreativeAssessment
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateModulePage : ContentPage
     {
-        public List<DetailedFeedback> DetailedFeedback { get; private set; }
+        public List<DetailedFeedback> DetailedFeedbackMatrix { get; private set; }
 
         public CreateModulePage()
         {
             InitializeComponent();
-            DetailedFeedback = new List<DetailedFeedback>();
+            DetailedFeedbackMatrix = new List<DetailedFeedback>();
 
         }
 
@@ -49,8 +49,8 @@ namespace CreativeAssessment
                 foreach (var item in parseResults)
                 {
 
-                    DetailedFeedback.Add(
-                        new DetailedFeedback { ID = item.Result.ID, Criterion = item.Result.Criterion, APlus = item.Result.APlus, A = item.Result.A, AMinus = item.Result.AMinus, BPlus = item.Result.BPlus, B = item.Result.B, CPlus = item.Result.CPlus, C = item.Result.C, CMinus = item.Result.CMinus, DPlus = item.Result.DPlus, D = item.Result.D, DMinus = item.Result.DMinus, E = item.Result.E, F = item.Result.F });
+                    DetailedFeedbackMatrix.Add(
+                        new DetailedFeedback { ID = item.Result.ID, Criterion = item.Result.Criterion, APlus = item.Result.APlus, A = item.Result.A, AMinus = item.Result.AMinus, BPlus = item.Result.BPlus, B = item.Result.B, BMinus = item.Result.BMinus, CPlus = item.Result.CPlus, C = item.Result.C, CMinus = item.Result.CMinus, DPlus = item.Result.DPlus, D = item.Result.D, DMinus = item.Result.DMinus, E = item.Result.E, F = item.Result.F });
                 }
 
                 //Initialise a new SQLite connection , connecting to a specific database file defined in App.
@@ -59,9 +59,9 @@ namespace CreativeAssessment
                     conn.CreateTable<DetailedFeedback>();
 
                     //adds detailed feedback to db.
-                    foreach (DetailedFeedback item in DetailedFeedback)
+                    foreach (DetailedFeedback item in DetailedFeedbackMatrix)
                     {
-                        conn.Insert(item);
+                        conn.InsertOrReplace(item);
                     }
                 }
                 // just a notification to say it was a success.
@@ -70,7 +70,8 @@ namespace CreativeAssessment
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                string exception = ex.ToString();
+                await DisplayAlert("Upload Error", exception, "OK");
             }
         }
 
