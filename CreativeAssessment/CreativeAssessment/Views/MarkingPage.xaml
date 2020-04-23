@@ -5,6 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CreativeAssessment.Views.MarkingPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="saveButton" Text="Save" Clicked="SaveButton_Clicked"/>
+        
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <FlexLayout Padding="50" AlignItems="Stretch" AlignContent="SpaceAround" >
             <StackLayout>
