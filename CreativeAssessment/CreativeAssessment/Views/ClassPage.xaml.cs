@@ -113,8 +113,6 @@ namespace CreativeAssessment
                     }
 
 
-
-
                 }
                 // just a notification to say it was a success.
                 await DisplayAlert("!", "Upload successful", "OK");

@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="CreativeAssessment.ClassPage">
     <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="tick.png" Text=""/>
         <ToolbarItem Icon="bin.png" Text="" Clicked="ToolbarItem_Clicked"/>
         <ToolbarItem Text="Delete All" Clicked="ToolbarItem_Clicked_1"/>
     </ContentPage.ToolbarItems>
