@@ -142,17 +142,25 @@ namespace CreativeAssessment
         }
 
         //delete all button
-        private void ToolbarItem_Clicked_1(object sender, EventArgs e)
+        private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
         {
 
-            Class.Clear();
+            var answer =  await DisplayAlert("Warning", "This will delete the list of students, proceed?", "Yes", "No");
 
-            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            if (answer == true)
             {
-                conn.CreateTable<Student>();
-                conn.DeleteAll<Student>();
+                Class.Clear();
 
+                using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+                {
+                    conn.CreateTable<Student>();
+                    conn.DeleteAll<Student>();
+
+                }
             }
+
+            else
+            { }
 
 
 
