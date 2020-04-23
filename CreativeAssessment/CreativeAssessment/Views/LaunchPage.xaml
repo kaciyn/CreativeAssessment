@@ -6,20 +6,19 @@
     <ContentPage.Content>
 
         <AbsoluteLayout>
-        <StackLayout
+            <StackLayout
             AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
             AbsoluteLayout.LayoutFlags="All"
             BackgroundColor="White">
 
-            <Frame OutlineColor="DarkCyan" 
-                   BackgroundColor="White"
+            <Frame OutlineColor="Accent" 
                    WidthRequest="300" 
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand">
                 <StackLayout>
-                    <Button Text="Class Page" BorderColor="DarkCyan" BackgroundColor="White" BorderWidth="0.2" TextColor="DarkCyan" Clicked="Button_Clicked"></Button>
-                        <Button Text="Create Module Page" BorderColor="DarkCyan" BackgroundColor="White" BorderWidth="0.2"  TextColor="DarkCyan" Clicked="Button_Clicked_1"></Button>
-                        <Button Text="Marking Page" BorderColor="DarkCyan" BackgroundColor="White" BorderWidth="0.2"  TextColor="DarkCyan" Clicked="Button_Clicked_Mark"></Button>
+                    <Button Text="Class Page" Clicked="Button_Clicked"></Button>
+                        <Button Text="Create Module Page" Clicked="Button_Clicked_1"></Button>
+                        <Button Text="Marking Page" Clicked="Button_Clicked_Mark"></Button>
                 </StackLayout>
             </Frame>
         </StackLayout>
