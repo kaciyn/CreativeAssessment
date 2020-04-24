@@ -12,6 +12,7 @@ namespace CreativeAssessment.backend_Classes.Entities
     [Table("CriteriaMarks")]
     public class CriterionMark// : MarkComponent
     {
+        //would be ideal to have the pk be studentid/criterionid/moduleid in the future
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
 
@@ -23,7 +24,7 @@ namespace CreativeAssessment.backend_Classes.Entities
 
         //this ideally in the future should instead be a link to Deliverable (1 deliverable has the 5 criterion marks) which in turn will link to Project (1 project may have more than one deliverable) which will then link to Module (1 module may have more than one project)
         [ForeignKey(typeof(Module))]
-        public int ModuleID { get; set; }
+        public string ModuleID { get; set; }
 
         /// <summary>
         /// Marks earned (of 100)

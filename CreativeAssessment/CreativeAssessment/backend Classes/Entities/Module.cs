@@ -14,8 +14,9 @@ namespace CreativeAssessment.backend_Classes.Entities
 
         //Module name
         public string Name { get; private set; }
-        
+
         //Module ID
+        [PrimaryKey]
         public string ID { get; private set; }
 
         /// <summary>

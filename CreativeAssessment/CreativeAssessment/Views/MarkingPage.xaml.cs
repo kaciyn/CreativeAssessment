@@ -1,6 +1,8 @@
 ﻿using CreativeAssessment.backend_Classes.Entities;
 using CreativeAssessment.backendClasses.Entities;
+using SQLite;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,27 +14,38 @@ using Xamarin.Forms.Xaml;
 
 namespace CreativeAssessment.Views
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MarkingPage : ContentPage
     {
 
         Student student;
         List<DetailedFeedback> feedbackMatrix;
+        public List<CriterionMark> criterionMarks;
 
-        public MarkingPage(Student selectedStudent, List<DetailedFeedback> feedbackMatrix)
+        public string ModuleID { get; }
+
+        public MarkingPage(Student selectedStudent, List<DetailedFeedback> feedbackMatrix, string moduleID)
         {
             InitializeComponent();
 
-            this.student = selectedStudent;
+            student = selectedStudent;
+            ModuleID = moduleID;
             this.feedbackMatrix = feedbackMatrix;
+            //TODO can make this check for whether the student is already marked in the db/populate the sliders
+            //TODO also need to add a "marked" status to the student when marked
+            criterionMarks = new List<CriterionMark>();
+            for (int i = 0; i < 6; i++)
+            {
+                //overall shouldn't be weighted as .2 here but we'll be pulling from db in the future so it doesn't matter right now
+                criterionMarks.Add(new CriterionMark { CriterionID = i, Weighting = .2, StudentID = student.MatriculationNumber, ModuleID = moduleID });
+            }
 
             labelCriterion1.Text = $"{feedbackMatrix[1].Criterion}";
             labelCriterion2.Text = $"{feedbackMatrix[2].Criterion}";
             labelCriterion3.Text = $"{feedbackMatrix[3].Criterion}";
             labelCriterion4.Text = $"{feedbackMatrix[4].Criterion}";
             labelCriterion5.Text = $"{feedbackMatrix[5].Criterion}";
-
-
         }
 
         public MarkingPage()
@@ -46,6 +59,8 @@ namespace CreativeAssessment.Views
         {
             double value = args.NewValue;
 
+
+            criterionMarks[1].Mark = value;
             labelMark1.Text = $"{value} {Feedback.ReturnLetterGradeString(value)}";
             labelDetailedFeedback1.Text = $"{Feedback.ReturnDetailedFeedback(value, 1, feedbackMatrix)}";
         }
@@ -54,6 +69,7 @@ namespace CreativeAssessment.Views
         {
             double value = args.NewValue;
 
+            criterionMarks[2].Mark = value;
             labelMark2.Text = $"{value} {Feedback.ReturnLetterGradeString(value)}";
             labelDetailedFeedback2.Text = $"{Feedback.ReturnDetailedFeedback(value, 2, feedbackMatrix)}";
         }
@@ -62,6 +78,7 @@ namespace CreativeAssessment.Views
         {
             double value = args.NewValue;
 
+            criterionMarks[2].Mark = value;
             labelMark3.Text = $"{value} {Feedback.ReturnLetterGradeString(value)}";
             labelDetailedFeedback3.Text = $"{Feedback.ReturnDetailedFeedback(value, 3, feedbackMatrix)}";
         }
@@ -70,6 +87,7 @@ namespace CreativeAssessment.Views
         {
             double value = args.NewValue;
 
+            criterionMarks[4].Mark = value;
             labelMark4.Text = $"{value} {Feedback.ReturnLetterGradeString(value)}";
             labelDetailedFeedback4.Text = $"{Feedback.ReturnDetailedFeedback(value, 4, feedbackMatrix)}";
         }
@@ -78,18 +96,34 @@ namespace CreativeAssessment.Views
         {
             double value = args.NewValue;
 
+            criterionMarks[5].Mark = value;
             labelMark5.Text = $"{value} {Feedback.ReturnLetterGradeString(value)}";
             labelDetailedFeedback5.Text = $"{Feedback.ReturnDetailedFeedback(value, 5, feedbackMatrix)}";
         }
 
-       
 
-        private void SaveButton_Clicked(object sender, EventArgs e)
+
+        private async void SaveButton_Clicked(object sender, EventArgs e)
         {
+            criterionMarks[1].Comments = editorComments1.Text;
+            criterionMarks[2].Comments = editorComments2.Text;
+            criterionMarks[3].Comments = editorComments3.Text;
+            criterionMarks[4].Comments = editorComments4.Text;
+            criterionMarks[5].Comments = editorComments5.Text;
 
+            //Initialise a new SQLite connection , connecting to a specific database file defined in App.
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                conn.CreateTable<CriterionMark>();
 
-
-
+                //adds detailed feedback to db.
+                foreach (CriterionMark mark in criterionMarks)
+                {
+                    conn.InsertOrReplace(mark);
+                }
+            }
+            // just a notification to say it was a success.
+            await DisplayAlert("Marks saved", "", "OK");
 
         }
     }

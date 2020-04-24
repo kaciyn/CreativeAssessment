@@ -6,10 +6,11 @@
              mc:Ignorable="d"
              x:Class="CreativeAssessment.Views.MarkingPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="saveButton" Text="Save" Clicked="SaveButton_Clicked"/>
-        
+        <!--could maybe make this a save and next?-->
+        <ToolbarItem Text="Save" Clicked="SaveButton_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
+
         <FlexLayout Padding="50" AlignItems="Stretch" AlignContent="SpaceAround" >
             <StackLayout>
 
@@ -28,6 +29,7 @@
                     </StackLayout>
                 </Frame>
                 <Label x:Name="labelDetailedFeedback1" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Small" HorizontalTextAlignment="Center" WidthRequest="140" HeightRequest="100"/>
+                <Editor x:Name="editorComments1" Placeholder="Additional Comments..." VerticalOptions="Start"  FontSize="Small"  WidthRequest="140" HeightRequest="100"/>
 
             </StackLayout>
 
@@ -50,6 +52,7 @@
                     </StackLayout>
                 </Frame>
                 <Label x:Name="labelDetailedFeedback2" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Small" HorizontalTextAlignment="Center" WidthRequest="140" HeightRequest="100"/>
+                <Editor x:Name="editorComments2" Placeholder="Additional Comments..." VerticalOptions="Start"  FontSize="Small"  WidthRequest="140" HeightRequest="100"/>
             </StackLayout>
 
             <StackLayout>
@@ -70,6 +73,7 @@
                     </StackLayout>
                 </Frame>
                 <Label x:Name="labelDetailedFeedback3" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Small" HorizontalTextAlignment="Center" WidthRequest="140" HeightRequest="100"/>
+                <Editor x:Name="editorComments3" Placeholder="Additional Comments..." VerticalOptions="Start"  FontSize="Small"  WidthRequest="140" HeightRequest="100"/>
             </StackLayout>
 
             <StackLayout>
@@ -90,6 +94,7 @@
                     </StackLayout>
                 </Frame>
                 <Label x:Name="labelDetailedFeedback4" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Small" HorizontalTextAlignment="Center" WidthRequest="140" HeightRequest="100"/>
+                <Editor x:Name="editorComments4" Placeholder="Additional Comments..." VerticalOptions="Start"  FontSize="Small"  WidthRequest="140" HeightRequest="100"/>
             </StackLayout>
 
             <StackLayout>
@@ -110,6 +115,7 @@
                     </StackLayout>
                 </Frame>
                 <Label x:Name="labelDetailedFeedback5" VerticalOptions="Start" VerticalTextAlignment="Start" FontSize="Small" HorizontalTextAlignment="Center" WidthRequest="140" HeightRequest="100"/>
+                <Editor x:Name="editorComments5" Placeholder="Additional Comments..." VerticalOptions="Start"  FontSize="Small"  WidthRequest="140" HeightRequest="100"/>
             </StackLayout>
 
         </FlexLayout>

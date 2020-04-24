@@ -11,17 +11,16 @@
             AbsoluteLayout.LayoutFlags="All"
             BackgroundColor="White">
 
-            <Frame OutlineColor="DarkCyan" 
+                <Frame OutlineColor="DarkCyan" 
                    WidthRequest="300" 
                    HorizontalOptions="Center"
                    VerticalOptions="CenterAndExpand">
-                <StackLayout>
-                    <Button Text="Class Page" TextColor="DarkCyan" BorderColor="DarkCyan" BackgroundColor="White" BorderWidth="0.2" Clicked="Button_Clicked"></Button>
-                        <Button Text="Create Module Page" TextColor="DarkCyan" BackgroundColor="White" BorderColor="DarkCyan" BorderWidth="0.2" Clicked="Button_Clicked_1"></Button>
-                        <Button Text="Marking Page" TextColor="DarkCyan" BorderColor="DarkCyan" BackgroundColor="White" BorderWidth="0.2" Clicked="Button_Clicked_Mark"></Button>
-                </StackLayout>
-            </Frame>
-        </StackLayout>
+                    <StackLayout>
+                        <Button Text="Class" TextColor="DarkCyan" BorderColor="DarkCyan" BackgroundColor="White" BorderWidth="0.2" Clicked="Button_Clicked"></Button>
+                        <Button Text="Create Module" TextColor="DarkCyan" BackgroundColor="White" BorderColor="DarkCyan" BorderWidth="0.2" Clicked="Button_Clicked_1"></Button>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

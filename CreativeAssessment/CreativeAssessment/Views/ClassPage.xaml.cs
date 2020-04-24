@@ -46,12 +46,12 @@ namespace CreativeAssessment
 
                 try
                 {
-                    
+
                     conn.CreateTable<Student>();
 
                     var students = conn.Table<Student>().ToList();
 
-                   
+
 
                     foreach (var item in students)
                     {
@@ -194,7 +194,8 @@ namespace CreativeAssessment
 
         private void MarkButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Views.MarkingPage(selectedStudent, DetailedFeedbackMatrix));
+            //placeholder module id for now
+            Navigation.PushAsync(new Views.MarkingPage(selectedStudent, DetailedFeedbackMatrix, "SET98797"));
 
         }
     }
