@@ -7,8 +7,9 @@
              x:Class="CreativeAssessment.ClassPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="markButton" Text="Mark" Clicked="MarkButton_Clicked"/>
-        <ToolbarItem Icon="bin.png" Text="" Clicked="ToolbarItem_Clicked"/>
-        <ToolbarItem Text="Delete All" Clicked="ToolbarItem_Clicked_1"/>
+        <ToolbarItem Icon="bin.png" Clicked="DeleteStudent_Clicked"/>
+        <ToolbarItem Text="Delete All" Clicked="DeleteAll_Clicked"/>
+        <ToolbarItem Text="Send All Marked" Clicked="Send Marked_Clicked"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
 

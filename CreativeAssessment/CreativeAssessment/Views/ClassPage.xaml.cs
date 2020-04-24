@@ -157,7 +157,7 @@ namespace CreativeAssessment
         }
 
         //delete individual students
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        private void DeleteStudent_Clicked(object sender, EventArgs e)
         {
             //Class.Remove(selectedItem);
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
@@ -170,7 +170,7 @@ namespace CreativeAssessment
         }
 
         //delete all button
-        private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
+        private async void DeleteAll_Clicked(object sender, EventArgs e)
         {
 
             var answer = await DisplayAlert("Warning", "This will delete the list of students, proceed?", "Yes", "No");
