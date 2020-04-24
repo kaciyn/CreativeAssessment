@@ -46,19 +46,26 @@ namespace CreativeAssessment
 
                 try
                 {
+                    
                     conn.CreateTable<Student>();
 
                     var students = conn.Table<Student>().ToList();
 
-                    if (students != null)
-                    {
-                        UploadBtn.IsVisible = false;
-                    }
+                   
 
                     foreach (var item in students)
                     {
 
                         Class.Add(new Student { Marked = item.Marked, MatriculationNumber = item.MatriculationNumber, Name = item.Name, Surname = item.Surname, Email = item.Email, LastDownloaded = DateTime.Now });
+                    }
+
+                    if (Class.Count < 1)
+                    {
+                        UploadBtn.IsVisible = true;
+                    }
+                    else
+                    {
+                        UploadBtn.IsVisible = false;
                     }
 
                     //loads detailed feedback matrix from db
