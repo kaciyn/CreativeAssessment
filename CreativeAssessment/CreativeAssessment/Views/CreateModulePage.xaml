@@ -43,27 +43,27 @@
                         </StackLayout>
                 
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Research"/>
+                            <Label Text="Research" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment1Research"/>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Initial Ideas"/>
+                            <Label Text="Initial Ideas" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade"  x:Name="Assessment1Ideas"/>
                         </StackLayout>
 
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="Development"/>
+                            <Label Text="Development" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment1Devel"/>
                         </StackLayout>
 
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="Presentation"/>
+                            <Label Text="Presentation" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment1Presentation"/>
                         </StackLayout>
 
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="Pride"/>
+                            <Label Text="Pride" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment1Pride"/>
                         </StackLayout>
                     </StackLayout>
@@ -79,27 +79,27 @@
                         </StackLayout>
                 
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Research"/>
+                            <Label Text="Research" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment2Research"/>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Initial Ideas"/>
+                            <Label Text="Initial Ideas" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade"  x:Name="Assessment2Ideas"/>
                         </StackLayout>
 
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="Development"/>
+                            <Label Text="Development" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment2Devel"/>
                         </StackLayout>
 
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="Presentation"/>
+                            <Label Text="Presentation" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment2Presentation"/>
                         </StackLayout>
 
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="Pride"/>
+                            <Label Text="Pride" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment2Pride"/>
                         </StackLayout>
                     </StackLayout>
@@ -115,27 +115,27 @@
                         </StackLayout>
                 
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Research"/>
+                            <Label Text="Research" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment3Research"/>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Initial Ideas"/>
+                            <Label Text="Initial Ideas" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade"  x:Name="Assessment3Ideas"/>
                         </StackLayout>
 
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="Development"/>
+                            <Label Text="Development" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment3Devel"/>
                         </StackLayout>
 
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="Presentation"/>
+                            <Label Text="Presentation" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment3Presentation"/>
                         </StackLayout>
 
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="Pride"/>
+                            <Label Text="Pride" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment3Pride"/>
                         </StackLayout>
                     </StackLayout>
@@ -151,27 +151,27 @@
                         </StackLayout>
                 
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Research"/>
+                            <Label Text="Research" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment4Research"/>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Initial Ideas"/>
+                            <Label Text="Initial Ideas" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade"  x:Name="Assessment4Ideas"/>
                         </StackLayout>
 
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="Development"/>
+                            <Label Text="Development" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment4Devel"/>
                         </StackLayout>
 
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="Presentation"/>
+                            <Label Text="Presentation" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment4Presentation"/>
                         </StackLayout>
 
                         <StackLayout  Orientation="Horizontal">
-                            <Label Text="Pride"/>
+                            <Label Text="Pride" VerticalOptions="Center"/>
                             <Entry Placeholder="% of Grade" x:Name="Assessment4Pride"/>
                         </StackLayout>
                     </StackLayout>
