@@ -112,19 +112,25 @@ namespace CreativeAssessment.Views
             criterionMarks[5].Comments = editorComments5.Text;
 
             //Initialise a new SQLite connection , connecting to a specific database file defined in App.
-            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
             {
-                conn.CreateTable<CriterionMark>();
+                db.CreateTable<CriterionMark>();
 
                 //adds detailed feedback to db.
                 foreach (CriterionMark mark in criterionMarks)
                 {
-                    conn.InsertOrReplace(mark);
+                    db.InsertOrReplace(mark);
                 }
+
+                var currentStudent = db.Table<Student>().Where(x => x.MatriculationNumber == this.student.MatriculationNumber).FirstOrDefault();
+                currentStudent.Marked = true;
+
+                db.Update(currentStudent);
             }
             // just a notification to say it was a success.
-            await DisplayAlert("Marks saved", "", "OK");
+            await DisplayAlert("Success!", "Marks saved", "Return to class list");
 
+            await Navigation.PushAsync(new ClassPage());
         }
     }
 }
