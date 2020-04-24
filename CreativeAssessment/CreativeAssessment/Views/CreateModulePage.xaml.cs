@@ -14,6 +14,9 @@ namespace CreativeAssessment
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateModulePage : ContentPage
     {
+
+        bool is_picker_valid = false;
+
         public CreateModulePage()
         {
             InitializeComponent();
@@ -44,6 +47,8 @@ namespace CreativeAssessment
         /// <param name="e"></param>
         public void OnAssessmentPickerChange(object sender, EventArgs e)
         {
+            is_picker_valid = true;
+
             if(AssessmentPicker.SelectedItem.ToString() == "1")
             {
                 Assessment1.IsVisible = true;
@@ -88,7 +93,15 @@ namespace CreativeAssessment
                 "This will delete all other modules stored in the system", "Save", "Cancel");
             if (b == true)
             {
-                CreateModule();
+                if (ModuleName.Text != null && ModuleID != null && is_picker_valid)
+                {
+                    CreateModule();
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Please ensure that input fields are not empty", "OK");
+                }
+                
             }
         }
 
