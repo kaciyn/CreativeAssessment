@@ -12,6 +12,8 @@ using Plugin.FilePicker.Abstractions;
 using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Net.Mail;
+using CreativeAssessment.backendClasses;
 
 namespace CreativeAssessment
 {
@@ -179,10 +181,10 @@ namespace CreativeAssessment
             {
                 Class.Clear();
 
-                using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+                using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
                 {
-                    conn.CreateTable<Student>();
-                    conn.DeleteAll<Student>();
+                    db.CreateTable<Student>();
+                    db.DeleteAll<Student>();
 
                 }
 
@@ -197,6 +199,57 @@ namespace CreativeAssessment
             //placeholder module id for now
             Navigation.PushAsync(new Views.MarkingPage(selectedStudent, DetailedFeedbackMatrix, "SET98797"));
 
+        }
+
+        private async void SendMarked_Clicked(object sender, EventArgs e)
+        {
+            {
+                var markedUnsentStudents = Class.Where(x => x.Marked == true && x.FeedbackSent == false).ToArray();
+                foreach (var student in markedUnsentStudents)
+                {
+
+                    try
+                    {
+
+                        MailMessage mail = new MailMessage();
+                        // can we get the uni to provide a server
+                        SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                        mail.From = new MailAddress("creativeassessmenttest@gmail.com");
+                        mail.To.Add("40406489@live.napier.ac.uk");
+                        //mail.To.Add(student.Email);
+                        //when we have it set this to the project/assessment name
+                        mail.Subject = "Assessment Marks";
+                        mail.Body = EmailHandler.GenerateResultsEmail(student.MatriculationNumber
+                            //,assessmentID
+                            );
+
+                        SmtpServer.Port = 587;
+                        SmtpServer.Host = "smtp.gmail.com";
+                        SmtpServer.EnableSsl = true;
+                        SmtpServer.UseDefaultCredentials = false;
+                        SmtpServer.Credentials = new System.Net.NetworkCredential("creativeassessmenttest@gmail.com", "wdqkby7J$B8T");
+
+                        SmtpServer.Send(mail);
+
+                        student.FeedbackSent = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        await DisplayAlert($"Email not sent to {student.Email}", ex.Message, "OK");
+                    }
+
+                }
+
+                using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
+                {
+                    db.Insert(Class);
+                }
+
+                await DisplayAlert("Success", "Emails sent", "OK");
+
+
+            }
         }
     }
 }
