@@ -38,7 +38,14 @@ namespace CreativeAssessment.Views
             for (int i = 0; i < 6; i++)
             {
                 //overall shouldn't be weighted as .2 here but we'll be pulling from db in the future so it doesn't matter right now
-                criterionMarks.Add(new CriterionMark { CriterionID = i, Weighting = .2, StudentID = student.MatriculationNumber, ModuleID = moduleID });
+                //also the id is a shitshow i just need this to work right now
+                criterionMarks.Add(new CriterionMark
+                { //ID = student.MatriculationNumber * i,
+                    CriterionID = i,
+                    Weighting = .2,
+                    StudentID = student.MatriculationNumber,
+                    ModuleID = moduleID
+                });
             }
 
             labelCriterion1.Text = $"{feedbackMatrix[1].Criterion}";
@@ -123,7 +130,7 @@ namespace CreativeAssessment.Views
                 //adds detailed feedback to db.
                 foreach (CriterionMark mark in criterionMarks)
                 {
-                    db.InsertOrReplace(mark);
+                    db.Insert(mark);
                 }
 
                 var currentStudent = db.Table<Student>().Where(x => x.MatriculationNumber == this.student.MatriculationNumber).FirstOrDefault();

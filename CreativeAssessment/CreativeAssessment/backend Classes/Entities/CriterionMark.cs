@@ -11,7 +11,7 @@ using System.Linq;
 namespace CreativeAssessment.backend_Classes.Entities
 {
     [Table("CriteriaMarks")]
-    public class CriterionMark : MarkComponent
+    public class CriterionMark //: MarkComponent
     {
         //would be ideal to have the pk be studentid/criterionid/moduleid in the future
         [PrimaryKey, AutoIncrement]

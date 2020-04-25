@@ -12,7 +12,6 @@ using Plugin.FilePicker.Abstractions;
 using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Net.Mail;
 using CreativeAssessment.backendClasses;
 
 namespace CreativeAssessment
@@ -43,22 +42,23 @@ namespace CreativeAssessment
 
         protected async override void OnAppearing()
         {
-            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
             {
-
+                //db.DeleteAll<CriterionMark>();
                 try
                 {
 
-                    conn.CreateTable<Student>();
+                    db.CreateTable<Student>();
 
-                    var students = conn.Table<Student>().ToList();
+                    var students = db.Table<Student>().ToList();
 
-
-
-                    foreach (var item in students)
+                    foreach (var student in students)
                     {
+                        //student.FeedbackSent = false;
+                        //student.Marked = false;
+                        //db.Update(student);
 
-                        Class.Add(new Student { Marked = item.Marked, MatriculationNumber = item.MatriculationNumber, Name = item.Name, Surname = item.Surname, Email = item.Email, LastDownloaded = DateTime.Now });
+                        Class.Add(new Student { Marked = student.Marked, MatriculationNumber = student.MatriculationNumber, Name = student.Name, Surname = student.Surname, Email = student.Email, LastDownloaded = DateTime.Now });
                     }
 
                     if (Class.Count < 1)
@@ -71,10 +71,10 @@ namespace CreativeAssessment
                     }
 
                     //loads detailed feedback matrix from db
-                    conn.CreateTable<DetailedFeedback>();
+                    db.CreateTable<DetailedFeedback>();
 
                     //TODO if null show a message? maybe kick the user out to the module creation page to upload the csv or just straight up provide the upload dialogue
-                    DetailedFeedbackMatrix = conn.Table<DetailedFeedback>().ToList();
+                    DetailedFeedbackMatrix = db.Table<DetailedFeedback>().ToList();
                 }
                 catch (Exception ex)
                 {
@@ -204,51 +204,20 @@ namespace CreativeAssessment
         private async void SendMarked_Clicked(object sender, EventArgs e)
         {
             {
-                var markedUnsentStudents = Class.Where(x => x.Marked == true && x.FeedbackSent == false).ToArray();
-                foreach (var student in markedUnsentStudents)
-                {
+                var markedUnsentStudents = Class.Where(x => x.Marked == true && x.FeedbackSent == false).ToList();
 
-                    try
-                    {
+                var emailHandler = new EmailHandler();
 
-                        MailMessage mail = new MailMessage();
-                        // can we get the uni to provide a server
-                        SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-
-                        mail.From = new MailAddress("creativeassessmenttest@gmail.com");
-                        mail.To.Add("40406489@live.napier.ac.uk");
-                        //mail.To.Add(student.Email);
-                        //when we have it set this to the project/assessment name
-                        mail.Subject = "Assessment Marks";
-                        mail.Body = EmailHandler.GenerateResultsEmail(student.MatriculationNumber
-                            //,assessmentID
-                            );
-
-                        SmtpServer.Port = 587;
-                        SmtpServer.Host = "smtp.gmail.com";
-                        SmtpServer.EnableSsl = true;
-                        SmtpServer.UseDefaultCredentials = false;
-                        SmtpServer.Credentials = new System.Net.NetworkCredential("creativeassessmenttest@gmail.com", "wdqkby7J$B8T");
-
-                        SmtpServer.Send(mail);
-
-                        student.FeedbackSent = true;
-                    }
-                    catch (Exception ex)
-                    {
-                        await DisplayAlert($"Email not sent to {student.Email}", ex.Message, "OK");
-                    }
-
-                }
-
-                using (SQLiteConnection db = new SQLiteConnection(App.FilePath))
-                {
-                    db.Insert(Class);
-                }
+                //try
+                //{
+                emailHandler.SendEmails(markedUnsentStudents, DetailedFeedbackMatrix);
 
                 await DisplayAlert("Success", "Emails sent", "OK");
-
-
+                //}
+                //catch (Exception ex)
+                //{
+                //    await DisplayAlert($"Error sending emails", ex.InnerException.Message, "OK");
+                //}
             }
         }
     }
