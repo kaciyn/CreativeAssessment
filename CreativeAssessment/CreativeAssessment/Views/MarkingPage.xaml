@@ -118,6 +118,8 @@
                 <Editor x:Name="editorComments5" Placeholder="Additional Comments..." VerticalOptions="Start"  FontSize="Small"  WidthRequest="140" HeightRequest="100"/>
             </StackLayout>
 
+            <Editor x:Name="editorComments0" Placeholder="Overall Comments..." VerticalOptions="Start"  FontSize="Small"  WidthRequest="140" />
+
         </FlexLayout>
 
     </ContentPage.Content>

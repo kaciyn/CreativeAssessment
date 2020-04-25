@@ -105,6 +105,10 @@ namespace CreativeAssessment.Views
 
         private async void SaveButton_Clicked(object sender, EventArgs e)
         {
+
+            criterionMarks[0].CalculateMark(criterionMarks.GetRange(1, 5));
+            criterionMarks[0].Comments = editorComments0.Text;
+
             criterionMarks[1].Comments = editorComments1.Text;
             criterionMarks[2].Comments = editorComments2.Text;
             criterionMarks[3].Comments = editorComments3.Text;
