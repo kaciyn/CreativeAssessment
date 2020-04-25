@@ -6,11 +6,12 @@ using SQLite;
 using SQLiteNetExtensions.Attributes;
 using CreativeAssessment.backend_Classes.Entities;
 using CreativeAssessment.backendClasses.Entities;
+using System.Linq;
 
 namespace CreativeAssessment.backend_Classes.Entities
 {
     [Table("CriteriaMarks")]
-    public class CriterionMark// : MarkComponent
+    public class CriterionMark : MarkComponent
     {
         //would be ideal to have the pk be studentid/criterionid/moduleid in the future
         [PrimaryKey, AutoIncrement]
@@ -49,6 +50,19 @@ namespace CreativeAssessment.backend_Classes.Entities
         /// The notes.
         /// </value>
         public string Comments { get; set; }
+
+        /// <summary>
+        /// Calculates the total mark from the given mark components.
+        /// </summary>
+        /// <param name="components">The components.</param>
+        /// <returns>
+        /// Total mark
+        /// </returns>
+        public void CalculateMark(List<CriterionMark> components)//ugh lol i hope it works with the inheritance i guess we will just have to wait and see
+        {
+            Mark = components.Sum(markComponent => markComponent.Mark * markComponent.Weighting) / components.Count;
+        }
+
     }
 
 }

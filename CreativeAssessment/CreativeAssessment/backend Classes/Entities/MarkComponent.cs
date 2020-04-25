@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using SQLite;
 
@@ -40,9 +41,9 @@ namespace CreativeAssessment.backend_Classes.Entities
         /// <returns>
         /// Total mark
         /// </returns>
-        public float CalculateMark(ObservableCollection<MarkComponent> components)//ugh lol i hope it works with the inheritance i guess we will just have to wait and see
+        public void CalculateMark(List<MarkComponent> components)//ugh lol i hope it works with the inheritance i guess we will just have to wait and see
         {
-            return components.Sum(markComponent => markComponent.Mark * markComponent.Weighting) / components.Count;
+            Mark = components.Sum(markComponent => markComponent.Mark * markComponent.Weighting) / components.Count;
         }
 
     }
